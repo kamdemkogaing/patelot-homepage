@@ -1,5 +1,12 @@
 # React + Vite
 
+## Sprachen
+
+Der Sprachumschalter im Header zeigt die Seite auf Deutsch, Englisch oder
+Französisch. Die Auswahl wird lokal im Browser gespeichert; standardmäßig wird
+Deutsch verwendet. Die Texte stehen in `src/translations.js`. Der
+herunterladbare Flyer ist weiterhin nur auf Deutsch verfügbar.
+
 ## SFTP-Deployment
 
 1. Installiere die Abhängigkeiten mit `npm install`.

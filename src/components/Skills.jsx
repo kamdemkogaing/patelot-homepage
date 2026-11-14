@@ -23,28 +23,28 @@ const skills = [
   },
 ];
 
-const Skills = () => (
+const Skills = ({ text }) => (
   <section id="skills" className="scroll-mt-24 bg-slate-900 py-20">
     <div className="w-full px-4 sm:px-6 lg:px-12">
       <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#9CAF88]">
-        Meine Stärken
+        {text.eyebrow}
       </p>
       <h2 className="mb-10 text-3xl font-bold text-white sm:text-4xl">
-        Kern<span className="text-[#9CAF88]">kompetenzen</span>
+        <span className="text-[#9CAF88]">{text.heading}</span>
       </h2>
       <div className="grid gap-6 md:grid-cols-2">
-        {skills.map(({ category, icon: Icon, items }) => (
-          <article key={category} className="rounded-3xl border border-slate-700 bg-slate-800/60 p-6 transition-colors hover:border-[#9CAF88]/60 sm:p-8">
+        {skills.map(({ category, icon: Icon, items }, index) => (
+          <article key={category} className="min-w-0 rounded-3xl border border-slate-700 bg-slate-800/60 p-6 transition-colors hover:border-[#9CAF88]/60 sm:p-8">
             <div className="mb-6 flex items-center gap-4">
               <div className="rounded-2xl bg-[#9CAF88]/15 p-3 text-[#9CAF88]">
                 <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-white">{category}</h3>
+              <h3 className="text-xl font-bold text-white">{text.categories[index]}</h3>
             </div>
             <ul className="flex flex-wrap gap-2">
               {items.map((item) => (
-                <li key={item} className="rounded-full border border-slate-600 bg-slate-900/70 px-3 py-1.5 text-sm text-gray-200">
-                  {item}
+                <li key={item} className="max-w-full break-words rounded-full border border-slate-600 bg-slate-900/70 px-3 py-1.5 text-sm text-gray-200">
+                  {text.items[item] ?? item}
                 </li>
               ))}
             </ul>

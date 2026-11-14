@@ -8,7 +8,7 @@ import {
   Twitter,
 } from "lucide-react";
 
-const Footer = () => {
+const Footer = ({ text, nav }) => {
   return (
     <footer
       id="contact"
@@ -26,17 +26,16 @@ const Footer = () => {
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 backdrop-blur-sm border border-[#9CAF88]/20 rounded-full px-6 py-2 mb-8">
             <Heart className="w-4 h-4 text-[#9CAF88]" />
             <span className="text-sm text-[#9CAF88] font-medium">
-              Lass uns zusammenarbeiten
+              {text.together}
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-[#9CAF88] to-white bg-clip-text text-transparent">
-            Bereit, Dein Projekt zu starten?
+            {text.heading}
           </h2>
 
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Ich freue mich auf Deine Rückmeldung und helfe Dir gerne bei Deinem
-            nächsten Projekt.
+            {text.intro}
           </p>
 
           {/* Primary Contact Buttons */}
@@ -47,7 +46,7 @@ const Footer = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#556B2F] to-[#9CAF88] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Mail className="w-5 h-5 relative z-10" />
-              <span className="relative z-10">E-Mail senden</span>
+              <span className="relative z-10">{text.email}</span>
             </a>
 
             <a
@@ -56,7 +55,7 @@ const Footer = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Phone className="w-5 h-5 relative z-10" />
-              <span className="relative z-10">Anrufen</span>
+              <span className="relative z-10">{text.call}</span>
             </a>
           </div>
 
@@ -80,20 +79,17 @@ const Footer = () => {
               Patrick Kamdem
             </h3>
             <p className="text-gray-400 text-base leading-relaxed mb-6">
-              Full-Stack Entwickler mit Leidenschaft für die Erstellung schöner
-              und funktionaler Web-Erlebnisse. Spezialisiert auf moderne
-              Technologien und die Bereitstellung außergewöhnlicher digitaler
-              Lösungen.
+              {text.bio}
             </p>
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <MapPin className="w-4 h-4" />
-              <span>Deutschland</span>
+              <span>{text.country}</span>
             </div>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-6 text-white">
-              Dienstleistungen
+              {text.services}
             </h4>
             <ul className="space-y-3 text-gray-400">
               <li>
@@ -102,7 +98,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Webentwicklung
+                  {text.serviceItems[0]}
                 </a>
               </li>
               <li>
@@ -111,7 +107,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  E-Commerce Lösungen
+                  {text.serviceItems[1]}
                 </a>
               </li>
               <li>
@@ -120,7 +116,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Beratung
+                  {text.serviceItems[2]}
                 </a>
               </li>
               <li>
@@ -129,7 +125,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Support
+                  {text.serviceItems[3]}
                 </a>
               </li>
             </ul>
@@ -137,7 +133,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold mb-6 text-white">
-              Schnellzugriff
+              {text.quick}
             </h4>
             <ul className="space-y-3 text-gray-400">
               <li>
@@ -146,7 +142,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Start
+                  {nav[0]}
                 </a>
               </li>
               <li>
@@ -155,7 +151,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Fähigkeiten
+                  {nav[2]}
                 </a>
               </li>
               <li>
@@ -164,7 +160,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Projekte
+                  {nav[4]}
                 </a>
               </li>
               <li>
@@ -173,7 +169,7 @@ const Footer = () => {
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
-                  Kontakt
+                  {nav[5]}
                 </a>
               </li>
             </ul>
@@ -185,9 +181,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 mb-6 md:mb-0">
               <p className="flex items-center gap-2">
-                &copy; 2026 Patrick Kamdem. Erstellt mit
+                &copy; 2026 Patrick Kamdem. {text.created}
                 <Heart className="w-4 h-4 text-[#9CAF88] animate-pulse" />
-                Alle Rechte vorbehalten.
+                {text.rights}
               </p>
             </div>
             <div className="flex gap-4">

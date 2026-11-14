@@ -7,7 +7,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const Hero = () => {
+const Hero = ({ text }) => {
   return (
     <section
       id="home"
@@ -36,7 +36,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 backdrop-blur-sm border border-[#9CAF88]/20 rounded-full px-6 py-3 animate-fade-in">
               <Sparkles className="w-4 h-4 text-[#9CAF88] animate-pulse" />
               <span className="text-sm text-[#9CAF88] font-medium">
-                Verfügbar für neue Projekte
+                {text.available}
               </span>
             </div>
 
@@ -50,21 +50,19 @@ const Hero = () => {
 
               <h2 className="text-xl md:text-3xl font-semibold text-gray-300 animate-slide-up delay-200 leading-tight">
                 <span className="text-[#9CAF88] font-bold">
-                  E-Commerce Manager
+                  {text.manager}
                 </span>
                 <br className="" />
                 {/*  <span className="md:inline hidden"> & </span> */}
                 <span className="text-[#556B2F] font-bold">
-                  Frontend Developer
+                  {text.developer}
                 </span>
               </h2>
             </div>
 
             {/* Description */}
             <p className="text-sm text-gray-400 leading-relaxed max-w-xl animate-slide-up delay-300">
-              Ich verbinde technische E-Commerce-Expertise mit
-              Frontend-Entwicklung und optimiere digitale Produkte,
-              Online-Shops und ihre Prozesse.
+              {text.description}
             </p>
 
             {/* CTA Buttons */}
@@ -74,7 +72,7 @@ const Hero = () => {
                 className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-[#9CAF88] to-[#556B2F] text-black px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-[#9CAF88]/25 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#556B2F] to-[#9CAF88] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm">Meine Projekte</span>
+                <span className="relative z-10 text-sm">{text.projects}</span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -85,7 +83,7 @@ const Hero = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <Zap className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
-                <span className="relative z-10 text-sm">CV herunterladen</span>
+                <span className="relative z-10 text-sm">{text.cv}</span>
               </a>
             </div>
 
@@ -93,15 +91,15 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-6 pt-8 animate-slide-up delay-700">
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#9CAF88]">10+</div>
-                <div className="text-sm text-gray-400">Jahre Erfahrung</div>
+                <div className="text-sm text-gray-400">{text.years}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#9CAF88]">50+</div>
-                <div className="text-sm text-gray-400">Projekte</div>
+                <div className="text-sm text-gray-400">{text.projectCount}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#9CAF88]">4</div>
-                <div className="text-sm text-gray-400">Unternehmen</div>
+                <div className="text-sm text-gray-400">{text.companies}</div>
               </div>
             </div>
           </div>
@@ -122,7 +120,7 @@ const Hero = () => {
                   <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
                     <Star className="w-4 h-4 text-[#9CAF88] fill-current" />
                     <span className="text-sm text-white font-medium">
-                      Frontend Architekt
+                      {text.architect}
                     </span>
                   </div>
                 </div>
@@ -138,7 +136,7 @@ const Hero = () => {
                     <Code className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-white">
-                    Frontend Development
+                    {text.frontend}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     React, Vite, Next.js, Tailwind CSS, JavaScript, TypeScript
@@ -153,7 +151,7 @@ const Hero = () => {
                     <ShoppingCart className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-white">
-                    E-Commerce Solutions
+                    {text.commerce}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     Shopware, SelectLine, ManiacSeller, NOSTO, SEA, SEO, CRO,

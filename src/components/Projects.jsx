@@ -1,83 +1,53 @@
 import { ExternalLink } from "lucide-react";
 
-const Projects = () => {
+const Projects = ({ text }) => {
   const projects = [
     {
-      title: "Portfolio",
-      description:
-        "Mein persönliches Portfolio, das meine Arbeit als Frontend-Entwickler präsentiert.",
       tech: ["React", "Next.js", "Tailwind CSS"],
       link: "https://patelot.de/",
       github: "#",
     },
     {
-      title: "Portfolio Online",
-      description:
-        "Weitere Einblicke in meine Arbeit und meine Online-Präsenz.",
       tech: ["Portfolio", "Web"],
       link: "https://portfolio.patelot.de/",
       github: "#",
     },
     {
-      title: "Boxy Generator",
-      description:
-        "Erstellen Sie mit wenigen Klicks maßgeschneiderte, responsive Box-Layouts für Ihre Website.",
       tech: ["React", "JavaScript", "CSS"],
       link: "https://boxy.patelot.de/",
       github: "#",
     },
     {
-      title: "Countries Selection",
-      description:
-        "Das Projekt gibt einen Überblick über die Hauptstadt und die ungefähre Bevölkerungszahl der genannten Länder.",
       tech: ["React", "API"],
       link: "https://countries.patelot.de/",
       github: "#",
     },
     {
-      title: "Passwort Generator",
-      description:
-        "Sicher und zufällig erstelltes Passwort, das den höchsten Sicherheitsstandards entspricht.",
       tech: ["JavaScript", "HTML", "CSS"],
       link: "https://pwd-generator.patelot.de/",
       github: "#",
     },
     {
-      title: "Taskmate - ToDoList",
-      description:
-        "Diese einfache To-Do-Liste demonstriert die Verwendung von React für das Erstellen und Verwalten einer Liste von Aufgaben.",
       tech: ["React", "JavaScript"],
       link: "https://todolist.patelot.de/",
       github: "#",
     },
     {
-      title: "Cinemate - Movie Programm",
-      description:
-        "Entdecke mit Cinemate die Welt des Kinos neu! Übersichtliches Programm mit aktuellen Filmhighlights.",
       tech: ["React", "API"],
       link: "https://cinemate.patelot.de/",
       github: "#",
     },
     {
-      title: "AI Domain Suche",
-      description:
-        "Finden Sie den perfekten Domainnamen für Ihre Firma mit KI-Unterstützung.",
       tech: ["AI", "Web"],
       link: "https://www.ionos.de/ki-domain-namen-generator",
       github: "#",
     },
     {
-      title: "Bulk Domain Suche",
-      description:
-        "Massenabfrage für Domains. Prüfen Sie mehrere Domains gleichzeitig.",
       tech: ["Web", "JavaScript"],
       link: "https://www.ionos.de/domains/massen-domain-suche",
       github: "#",
     },
     {
-      title: "Moderne Shoplösung für PrintEquipment",
-      description:
-        "maßgeschneiderte Drucklösungen und individuell bedruckbare Geschenk- und Werbeartikel.",
       tech: ["Shopware", "JavaScript", "CSS", "SelectLine", "ManiacSeller"],
       link: "https://shop.printequipment.de/",
       github: "#",
@@ -88,7 +58,7 @@ const Projects = () => {
     <section id="projects" className="scroll-mt-24 py-20 bg-black">
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <h2 className="text-4xl font-bold text-white mb-12 text-left">
-          Featured <span className="text-[#9CAF88]">Projects</span>
+          <span className="text-[#9CAF88]">{text.heading}</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
           {projects.map((project, index) => (
@@ -118,10 +88,10 @@ const Projects = () => {
 
               <div className="relative p-6 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#9CAF88] transition-colors duration-300">
-                  {project.title}
+                  {text.titles[index]}
                 </h3>
                 <p className="text-gray-300 mb-6 flex-1 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                  {project.description}
+                  {text.descriptions[index]}
                 </p>
 
                 {/* Tech stack badges */}
@@ -142,7 +112,7 @@ const Projects = () => {
                     href={project.link}
                     className="group/btn relative overflow-hidden bg-gradient-to-r from-[#9CAF88] to-[#556B2F] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#9CAF88]/30 transform hover:scale-105 flex items-center gap-2"
                   >
-                    <span className="relative z-10">View Project</span>
+                    <span className="relative z-10">{text.view}</span>
                     <ExternalLink
                       size={18}
                       className="relative z-10 group-hover/btn:rotate-12 transition-transform duration-300"
