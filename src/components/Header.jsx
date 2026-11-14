@@ -1,5 +1,25 @@
-import { Menu, Sparkles, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  Briefcase,
+  Code2,
+  FolderKanban,
+  Home,
+  Mail,
+  Menu,
+  Sparkles,
+  UserRound,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+
+const navigation = [
+  { href: "#home", icon: Home },
+  { href: "#about", icon: UserRound },
+  { href: "#skills", icon: Code2 },
+  { href: "#experience", icon: Briefcase },
+  { href: "#projects", icon: FolderKanban },
+  { href: "#contact", icon: Mail },
+];
 
 const getScrollProgress = () => {
   const scrollableHeight =
@@ -13,19 +33,33 @@ const Header = ({ text, language, setLanguage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 20);
   const [scrollProgress, setScrollProgress] = useState(getScrollProgress);
-  const links = ["#home", "#about", "#skills", "#experience", "#projects", "#contact"];
+  const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       setScrollProgress(getScrollProgress());
+      const marker = Math.min(window.innerHeight * 0.3, 180);
+      let active = navigation[0].href;
+      for (const { href } of navigation) {
+        const section = document.getElementById(href.slice(1));
+        if (section && section.getBoundingClientRect().top <= marker) {
+          active = href;
+        }
+      }
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1) {
+        active = "#contact";
+      }
+      setActiveSection(active);
     };
 
+    const frame = window.requestAnimationFrame(handleScroll);
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+      window.cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -70,18 +104,19 @@ const Header = ({ text, language, setLanguage }) => {
 
             {/* Desktop Navigation */}
             <div className="hidden xl:block">
-              <div className="flex items-baseline">
-                {links.map((href, index) => (
+              <div className="flex items-center gap-1 rounded-full border border-white/10 bg-slate-950/50 p-1 shadow-inner shadow-black/20">
+                {navigation.map(({ href }, index) => (
                   <a
                     key={href}
                     href={href}
-                    className="group relative px-2 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
+                    aria-current={activeSection === href ? "location" : undefined}
+                    className={`relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8cba3] ${
+                      activeSection === href
+                        ? "bg-[#9CAF88] text-slate-950 shadow-md shadow-black/20"
+                        : "text-slate-300 hover:bg-white/10 hover:text-white"
+                    }`}
                   >
-                    <span className="relative z-10 font-medium">
-                      {text.nav[index]}
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#9CAF88] to-[#556B2F] group-hover:w-full transition-all duration-300"></div>
+                    {text.nav[index]}
                   </a>
                 ))}
               </div>
@@ -130,21 +165,23 @@ const Header = ({ text, language, setLanguage }) => {
               isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="space-y-1 pt-2">
-              {links.map((href, index) => (
+            <div className="space-y-1 rounded-2xl border border-white/10 bg-slate-950/60 p-2">
+              {navigation.map(({ href, icon: Icon }, index) => (
                 <a
                   key={href}
                   href={href}
+                  aria-current={activeSection === href ? "location" : undefined}
                   tabIndex={isOpen ? undefined : -1}
                   onClick={() => setIsOpen(false)}
-                  className="group block relative px-4 py-3 rounded-xl text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  className={`group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#b8cba3] ${
+                    activeSection === href
+                      ? "bg-[#9CAF88]/20 text-white"
+                      : "text-slate-300 hover:bg-white/10 hover:text-white"
+                  }`}
                 >
-                  <span className="relative z-10 font-medium">
-                    {text.nav[index]}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-[#9CAF88] to-[#556B2F] group-hover:h-8 transition-all duration-300"></div>
+                  <Icon className="h-4 w-4 shrink-0 text-[#b8cba3]" aria-hidden="true" />
+                  <span className="flex-1">{text.nav[index]}</span>
+                  <ArrowUpRight className="h-4 w-4 text-slate-500 transition-colors group-hover:text-[#b8cba3]" aria-hidden="true" />
                 </a>
               ))}
             </div>
