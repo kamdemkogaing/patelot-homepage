@@ -11,6 +11,14 @@ const Projects = () => {
       github: "#",
     },
     {
+      title: "Portfolio Online",
+      description:
+        "Weitere Einblicke in meine Arbeit und meine Online-Präsenz.",
+      tech: ["Portfolio", "Web"],
+      link: "https://portfolio.patelot.de/",
+      github: "#",
+    },
+    {
       title: "Boxy Generator",
       description:
         "Erstellen Sie mit wenigen Klicks maßgeschneiderte, responsive Box-Layouts für Ihre Website.",
@@ -77,7 +85,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-black">
+    <section id="projects" className="scroll-mt-24 py-20 bg-black">
       <div className="w-full px-4 sm:px-6 lg:px-12">
         <h2 className="text-4xl font-bold text-white mb-12 text-left">
           Featured <span className="text-[#9CAF88]">Projects</span>

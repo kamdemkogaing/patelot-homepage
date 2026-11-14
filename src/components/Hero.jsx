@@ -1,4 +1,3 @@
-import jsPDF from "jspdf";
 import {
   ArrowRight,
   Code,
@@ -9,204 +8,6 @@ import {
 } from "lucide-react";
 
 const Hero = () => {
-  const experiences = [
-    {
-      company: "Print Equipment GmbH & Co. KG",
-      position: "Frontend Architect & E-Commerce Manager",
-      period: "2024 - Heute",
-      link: "https://shop.printequipment.de/",
-    },
-    {
-      company: "IONOS",
-      position: "Software Developer",
-      period: "2014 - 2024",
-      link: "https://www.ionos.de/",
-    },
-    {
-      company: "Götz",
-      position: "Web Developer",
-      period: "2013 - 2014",
-      link: "https://www.goetz-auktion.de/",
-    },
-    {
-      company: "Siemens",
-      position: "Praktikant",
-      period: "2012 - 2013",
-      link: "https://www.siemens.com/",
-    },
-    {
-      company: "IONOS",
-      position: "Werkstudent IT/QA",
-      period: "2008 - 2012",
-      link: "https://www.ionos.de/",
-    },
-  ];
-
-  const projects = [
-    "E-Commerce Shopware Lösungen",
-    "React Frontend Anwendungen",
-    "Next.js Webseiten",
-    "Tailwind CSS Designs",
-    "JavaScript/TypeScript Projekte",
-    "SEO & CRO Optimierungen",
-  ];
-
-  const downloadCV = () => {
-    const doc = new jsPDF();
-
-    // Titel
-    doc.setFontSize(20);
-    doc.text("PATRICK KAMDEM - Experience", 20, 30);
-
-    // Untertitel
-    doc.setFontSize(14);
-    doc.text("Frontend Architect & E-Commerce Manager", 20, 45);
-
-    // Bild hinzufügen
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.onload = function () {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      const imgData = canvas.toDataURL("image/png");
-
-      // Bild in PDF einfügen (klein und rechts oben)
-      doc.addImage(imgData, "PNG", 140, 20, 40, 40);
-
-      // Kontaktinformationen
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.text("Kontakt:", 20, 60);
-      doc.setFont("helvetica", "normal");
-      doc.text("E-Mail: patrick-kamdem@patelot.de", 20, 70);
-      doc.text("Telefon: +49 171 4170604", 20, 80);
-
-      let yPosition = 100;
-
-      // Berufserfahrung
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "bold");
-      doc.text("Berufserfahrung:", 20, yPosition);
-      yPosition += 15;
-
-      experiences.forEach((exp) => {
-        if (yPosition > 250) {
-          doc.addPage();
-          yPosition = 30;
-        }
-
-        doc.setFontSize(12);
-        doc.setFont("helvetica", "bold");
-        doc.text(`${exp.position}`, 20, yPosition);
-
-        doc.setFont("helvetica", "normal");
-        doc.text(`${exp.company} - ${exp.period}`, 20, yPosition + 10);
-
-        yPosition += 25;
-      });
-
-      // Projekte
-      if (yPosition > 220) {
-        doc.addPage();
-        yPosition = 30;
-      }
-
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "bold");
-      doc.text("Projekte & Fähigkeiten:", 20, yPosition);
-      yPosition += 15;
-
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "normal");
-      projects.forEach((project) => {
-        if (yPosition > 270) {
-          doc.addPage();
-          yPosition = 30;
-        }
-        doc.text(`• ${project}`, 20, yPosition);
-        yPosition += 10;
-      });
-
-      // Footer
-      doc.setFontSize(10);
-      doc.text("Erstellt am: " + new Date().toLocaleDateString(), 20, 280);
-
-      // PDF speichern
-      doc.save("Patrick_Kamdem_Berufserfahrung.pdf");
-    };
-
-    img.onerror = function () {
-      // Fallback ohne Bild
-      console.log("Bild konnte nicht geladen werden, erstelle PDF ohne Bild");
-
-      // Kontaktinformationen
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.text("Kontakt:", 20, 60);
-      doc.setFont("helvetica", "normal");
-      doc.text("E-Mail: patrick-kamdem@patelot.de", 20, 70);
-      doc.text("Telefon: +49 171 4170604", 20, 80);
-
-      let yPosition = 100;
-
-      // Berufserfahrung
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "bold");
-      doc.text("Berufserfahrung:", 20, yPosition);
-      yPosition += 15;
-
-      experiences.forEach((exp) => {
-        if (yPosition > 250) {
-          doc.addPage();
-          yPosition = 30;
-        }
-
-        doc.setFontSize(12);
-        doc.setFont("helvetica", "bold");
-        doc.text(`${exp.position}`, 20, yPosition);
-
-        doc.setFont("helvetica", "normal");
-        doc.text(`${exp.company} - ${exp.period}`, 20, yPosition + 10);
-
-        yPosition += 25;
-      });
-
-      // Projekte
-      if (yPosition > 220) {
-        doc.addPage();
-        yPosition = 30;
-      }
-
-      doc.setFontSize(14);
-      doc.setFont("helvetica", "bold");
-      doc.text("Projekte & Fähigkeiten:", 20, yPosition);
-      yPosition += 15;
-
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "normal");
-      projects.forEach((project) => {
-        if (yPosition > 270) {
-          doc.addPage();
-          yPosition = 30;
-        }
-        doc.text(`• ${project}`, 20, yPosition);
-        yPosition += 10;
-      });
-
-      // Footer
-      doc.setFontSize(10);
-      doc.text("Erstellt am: " + new Date().toLocaleDateString(), 20, 280);
-
-      // PDF speichern
-      doc.save("Patrick_Kamdem_Berufserfahrung.pdf");
-    };
-
-    img.src = "/portrait-kamdem.png";
-  };
-
   return (
     <section
       id="home"
@@ -227,7 +28,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 left-1/3 w-5 h-5 border border-[#556B2F]/40 rotate-45 animate-spin duration-1000"></div>
       </div>
 
-      <div className="relative px-4 sm:px-6 lg:px-12 pb-20">
+      <div className="relative px-4 sm:px-6 lg:px-12 pt-28 md:pt-36 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="space-y-8">
@@ -249,21 +50,21 @@ const Hero = () => {
 
               <h2 className="text-xl md:text-3xl font-semibold text-gray-300 animate-slide-up delay-200 leading-tight">
                 <span className="text-[#9CAF88] font-bold">
-                  Frontend Architect
+                  E-Commerce Manager
                 </span>
                 <br className="" />
                 {/*  <span className="md:inline hidden"> & </span> */}
                 <span className="text-[#556B2F] font-bold">
-                  E-Commerce Experte
+                  Frontend Developer
                 </span>
               </h2>
             </div>
 
             {/* Description */}
             <p className="text-sm text-gray-400 leading-relaxed max-w-xl animate-slide-up delay-300">
-              Engagierter Full-Stack Entwickler mit Leidenschaft für die
-              Erstellung moderner, benutzerfreundlicher Webanwendungen und
-              innovativer E-Commerce Lösungen.
+              Ich verbinde technische E-Commerce-Expertise mit
+              Frontend-Entwicklung und optimiere digitale Produkte,
+              Online-Shops und ihre Prozesse.
             </p>
 
             {/* CTA Buttons */}
@@ -277,14 +78,15 @@ const Hero = () => {
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
 
-              <button
-                onClick={downloadCV}
+              <a
+                href={`${import.meta.env.BASE_URL}Patrick_Kamdem_Flyer.pdf`}
+                download="Patrick_Kamdem_Flyer.pdf"
                 className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-700 text-white px-8 py-4 rounded-2xl font-bold text-lg border border-slate-600 hover:border-[#9CAF88] hover:scale-105 hover:shadow-2xl hover:shadow-slate-800/25 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <Zap className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
                 <span className="relative z-10 text-sm">CV herunterladen</span>
-              </button>
+              </a>
             </div>
 
             {/* Stats */}

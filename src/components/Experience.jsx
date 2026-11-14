@@ -1,174 +1,91 @@
-import { Briefcase } from "lucide-react";
+import { ArrowUpRight, Briefcase } from "lucide-react";
 
-const Experience = () => {
-  const experiences = [
-    {
-      company: "Print Equipment GmbH & Co. KG",
-      position: "Frontend Architect & E-Commerce Sales Manager",
-      period: "2024 - Heute",
-      link: "https://shop.printequipment.de/",
-    },
-    {
-      company: "IONOS",
-      position: "Software Developer",
-      period: "2014 - 2024",
-      link: "https://www.ionos.de/",
-    },
-    {
-      company: "Götz",
-      position: "Web Developer",
-      period: "2013 - 2014",
-      link: "https://www.goetz-auktion.de/",
-    },
-    {
-      company: "Siemens",
-      position: "Praktikant",
-      period: "2012 - 2013",
-      link: "https://www.siemens.com/",
-    },
-    {
-      company: "IONOS",
-      position: "Werkstudent IT/QA",
-      period: "2008 - 2012",
-      link: "https://www.ionos.de/",
-    },
-  ];
+const experiences = [
+  {
+    company: "Print Equipment GmbH",
+    location: "Ottersweier",
+    position: "E-Commerce Manager",
+    period: "2024 – heute",
+    description: "Weiterentwicklung und Performance-Optimierung des Shopware-6-Shops, Optimierung von Customer Journey, Conversion und digitalen Vertriebsprozessen sowie Web Analytics, Reporting und Projektkoordination.",
+    tools: ["Shopware 6", "SelectLine ERP", "ManiacSeller", "NOSTO", "SEO / CRO"],
+    link: "https://shop.printequipment.de/",
+  },
+  {
+    company: "IONOS SE",
+    location: "Karlsruhe",
+    position: "Software Developer",
+    period: "2014 – 2024",
+    description: "Entwicklung komplexer Frontend- und E-Commerce-Lösungen, technische Konzeption und agile Feature-Umsetzung im Scrum-Team. Projekte: AI Domain Name Generator, Bulk Domain Search, BTO Server Configuration sowie Domain- und SEDO-Checks.",
+    tools: ["React", "Next.js", "JavaScript / TypeScript", "Cypress", "Selenium"],
+    link: "https://www.ionos.de/",
+  },
+  {
+    company: "Götz Auktionshaus GmbH",
+    location: "Oberkirch",
+    position: "IT-Mitarbeiter",
+    period: "2013 – 2014",
+    description: "Web- und Systemunterstützung, CMS, Datenbanken und Gestaltung.",
+    tools: ["Microsoft SQL Server", "CMS-Orchidee", "HTML / CSS", "Photoshop", "STAMPS 2.0"],
+    link: "https://www.goetz-auktion.de/",
+  },
+  {
+    company: "Hochschule Karlsruhe",
+    position: "IT-Support Techniker",
+    period: "2012 – 2013",
+    description: "Technische Betreuung sowie Weiterentwicklung von Laborversuchen und Unterstützung von Lehrmaterialien.",
+    tools: ["IT-Support", "Technische Dokumentation"],
+  },
+  {
+    company: "IONOS",
+    position: "Werkstudent IT/QA",
+    period: "2008 – 2012",
+    link: "https://www.ionos.de/",
+  },
+];
 
-  return (
-    <section id="experience" className="pt-10 pb-20 bg-slate-900">
-      <div className="w-full px-4 sm:px-6 lg:px-12">
-        <h2 className="text-4xl font-bold text-white mb-16 text-center">
-          Berufserfahrung
-        </h2>
-        <div className="relative hidden md:block">
-          {/* Tree trunk */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-b from-[#8B4513] via-[#654321] to-[#2F1B14] h-full rounded-full shadow-lg"></div>
-
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? "justify-start" : "justify-end"
-                }`}
-              >
-                {/* Branch */}
-                <div
-                  className={`absolute top-1/2 transform -translate-y-1/2 ${
-                    index % 2 === 0
-                      ? "left-1/2 w-16 h-0.5 bg-gradient-to-r from-[#8B4513] to-[#654321]"
-                      : "right-1/2 w-16 h-0.5 bg-gradient-to-l from-[#8B4513] to-[#654321]"
-                  } z-10`}
-                ></div>
-
-                {/* Branch end decoration */}
-                <div
-                  className={`absolute top-1/2 transform -translate-y-1/2 w-3 h-3 ${
-                    index % 2 === 0
-                      ? "left-[calc(50%+4rem)] bg-[#654321] rounded-full"
-                      : "right-[calc(50%+4rem)] bg-[#654321] rounded-full"
-                  } z-20 shadow-md`}
-                ></div>
-
-                {/* Experience card */}
-                <div
-                  className={`w-full max-w-lg bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-[#556B2F] hover:border-[#9CAF88] transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#9CAF88]/30 hover:-rotate-1 ${
-                    index % 2 === 0 ? "ml-20" : "mr-20"
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-br from-[#9CAF88] to-[#556B2F] p-4 rounded-xl shadow-lg">
-                      <Briefcase size={28} className="text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-white mb-2">
-                        {exp.position}
-                      </h3>
-                      <p className="text-[#9CAF88] text-xl font-semibold mb-3">
-                        {exp.company}
-                      </p>
-                      <p className="text-gray-400 text-sm mb-4 bg-slate-700 px-4 py-2 rounded-full inline-block shadow-md">
-                        {exp.period}
-                      </p>
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[#9CAF88] hover:text-white transition-colors duration-300 font-medium bg-slate-800 px-3 py-2 rounded-lg hover:bg-slate-700"
-                      >
-                        Mehr erfahren
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile version */}
-        <div className="md:hidden space-y-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-[#556B2F] hover:border-[#9CAF88] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#9CAF88]/20"
-            >
-              <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-[#9CAF88] to-[#556B2F] p-4 rounded-xl shadow-lg">
-                  <Briefcase size={28} className="text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {exp.position}
-                  </h3>
-                  <p className="text-[#9CAF88] text-xl font-semibold mb-3">
-                    {exp.company}
-                  </p>
-                  <p className="text-gray-400 text-sm mb-4 bg-slate-700 px-4 py-2 rounded-full inline-block shadow-md">
-                    {exp.period}
-                  </p>
-                  <a
-                    href={exp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#9CAF88] hover:text-white transition-colors duration-300 font-medium bg-slate-800 px-3 py-2 rounded-lg hover:bg-slate-700"
-                  >
-                    Mehr erfahren
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+const Experience = () => (
+  <section id="experience" className="scroll-mt-24 bg-slate-900 pb-20">
+    <div className="w-full px-4 sm:px-6 lg:px-12">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#9CAF88]">
+        Mein beruflicher Weg
+      </p>
+      <h2 className="mb-10 text-3xl font-bold text-white sm:text-4xl">
+        Berufserfahrung
+      </h2>
+      <ol className="relative space-y-6 border-l border-[#9CAF88]/30 pl-6 sm:pl-10">
+        {experiences.map((experience) => (
+          <li key={`${experience.company}-${experience.period}`} className="relative">
+            <span className="absolute -left-[31px] top-8 h-3 w-3 rounded-full border-2 border-[#9CAF88] bg-slate-900 sm:-left-[47px]" aria-hidden="true" />
+            <article className="rounded-3xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#9CAF88]/10 px-3 py-1 text-sm font-semibold text-[#b8cba3]">
+                  <Briefcase className="h-4 w-4" aria-hidden="true" />
+                  {experience.period}
+                </span>
+                {experience.link && (
+                  <a href={experience.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-medium text-[#b8cba3] hover:text-white">
+                    Mehr erfahren <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </a>
-                </div>
+                )}
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+              <h3 className="text-xl font-bold text-white">{experience.position}</h3>
+              <p className="mt-1 text-[#b8cba3]">
+                {experience.company}{experience.location && ` · ${experience.location}`}
+              </p>
+              {experience.description && <p className="mt-4 max-w-3xl text-sm leading-relaxed text-gray-300">{experience.description}</p>}
+              {experience.tools && (
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {experience.tools.map((tool) => (
+                    <li key={tool} className="rounded-full border border-slate-600 px-3 py-1 text-xs text-gray-300">{tool}</li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
 
 export default Experience;

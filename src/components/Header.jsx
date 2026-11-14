@@ -1,33 +1,39 @@
 import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const getScrollProgress = () => {
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  return scrollableHeight > 0
+    ? Math.min(Math.max((window.scrollY / scrollableHeight) * 100, 0), 100)
+    : 0;
+};
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 20);
+  const [scrollProgress, setScrollProgress] = useState(getScrollProgress);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 20;
-      setIsScrolled(scrolled);
-
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(Math.min(scrollPercent, 100));
+      setIsScrolled(window.scrollY > 20);
+      setScrollProgress(getScrollProgress());
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 md:mx-4 md:mt-4 md:rounded-2xl ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-slate-900/20"
-          : "bg-slate-900/80 backdrop-blur-sm"
+          ? "bg-slate-800/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl shadow-slate-900/20"
+          : "bg-slate-900/80 backdrop-blur-sm md:mx-4 md:mt-4 md:rounded-2xl"
       }`}
     >
       <div className="max-w-7xl mx-auto w-full">

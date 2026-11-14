@@ -1,79 +1,58 @@
-import { Star } from "lucide-react";
+import { BarChart3, Code2, Layers3, ShoppingCart } from "lucide-react";
 
-const Skills = () => {
-  const skills = [
-    {
-      category: "Technologien",
-      items: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React.js",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Bootstrap",
-      ],
-    },
-    {
-      category: "Tools",
-      items: [
-        "UX/UI-Design",
-        "VSCode",
-        "Scrum",
-        "JIRA",
-        "Confluence",
-        "Photoshop",
-        "ADOBE Target Test",
-        "SEA/SEO",
-      ],
-    },
-    {
-      category: "Support",
-      items: [
-        "Architekturberatung",
-        "Analyse",
-        "Wartung",
-        "CRO",
-        "A/B Testing",
-        "eCommerce Lösungen",
-        "Hosting & Deployment",
-        "Designsysteme",
-      ],
-    },
-  ];
+const skills = [
+  {
+    category: "E-Commerce & Systeme",
+    icon: ShoppingCart,
+    items: ["Shopware 6", "SelectLine ERP", "NOSTO", "Akeneo", "ManiacSeller", "Digitale Vertriebsprozesse"],
+  },
+  {
+    category: "Frontend & Entwicklung",
+    icon: Code2,
+    items: ["HTML5", "CSS / Tailwind", "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Bootstrap"],
+  },
+  {
+    category: "Performance & Marketing",
+    icon: BarChart3,
+    items: ["SEO / SEA", "CRO", "UX / UI", "Customer Journey", "A/B-Testing", "Web Analytics", "KPI-Reporting"],
+  },
+  {
+    category: "Projektmanagement & Daten",
+    icon: Layers3,
+    items: ["Agile / Scrum", "Technische Konzeption", "Agentursteuerung", "Prozessoptimierung", "MySQL", "Git", "Figma", "Jira", "Confluence"],
+  },
+];
 
-  return (
-    <section id="skills" className="pt-10 pb-20 bg-slate-900">
-      <div className="w-full px-4 sm:px-6 lg:px-12">
-        <h2 className="text-4xl font-bold text-white mb-12 text-left">
-          Skills & <span className="text-[#9CAF88]">Expertise</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-slate-900 p-6 rounded-lg border border-[#556B2F] hover:border-[#9CAF88] transition transform hover:scale-105"
-            >
-              <div className="flex items-center mb-4">
-                <Star className="text-[#9CAF88] mr-2" size={24} />
-                <h3 className="text-xl font-bold text-white">
-                  {skill.category}
-                </h3>
+const Skills = () => (
+  <section id="skills" className="scroll-mt-24 bg-slate-900 py-20">
+    <div className="w-full px-4 sm:px-6 lg:px-12">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#9CAF88]">
+        Meine Stärken
+      </p>
+      <h2 className="mb-10 text-3xl font-bold text-white sm:text-4xl">
+        Kern<span className="text-[#9CAF88]">kompetenzen</span>
+      </h2>
+      <div className="grid gap-6 md:grid-cols-2">
+        {skills.map(({ category, icon: Icon, items }) => (
+          <article key={category} className="rounded-3xl border border-slate-700 bg-slate-800/60 p-6 transition-colors hover:border-[#9CAF88]/60 sm:p-8">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="rounded-2xl bg-[#9CAF88]/15 p-3 text-[#9CAF88]">
+                <Icon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <ul className="space-y-2">
-                {skill.items.map((item, i) => (
-                  <li key={i} className="text-gray-300 text-sm">
-                    ✓ {item}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="text-xl font-bold text-white">{category}</h3>
             </div>
-          ))}
-        </div>
+            <ul className="flex flex-wrap gap-2">
+              {items.map((item) => (
+                <li key={item} className="rounded-full border border-slate-600 bg-slate-900/70 px-3 py-1.5 text-sm text-gray-200">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;
