@@ -3,8 +3,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 import SftpClient from 'ssh2-sftp-client'
 
-dotenv.config({ path: path.resolve(process.cwd(), '.env.deploy') })
-
 const requiredVariables = [
   'SFTP_HOST',
   'SFTP_USERNAME',
@@ -14,10 +12,17 @@ const requiredVariables = [
 ]
 
 async function deploy() {
-  for (const variable of requiredVariables) {
-    if (!process.env[variable]?.trim()) {
-      throw new Error(`Umgebungsvariable ${variable} fehlt. Bitte .env.deploy prüfen.`)
-    }
+  const configPath = path.resolve(process.cwd(), '.env.deploy')
+  const configResult = dotenv.config({ path: configPath })
+  if (configResult.error && configResult.error.code !== 'ENOENT') {
+    throw new Error(`Die Datei .env.deploy konnte nicht gelesen werden: ${configResult.error.message}`)
+  }
+  const missingVariables = requiredVariables.filter((variable) => !process.env[variable]?.trim())
+  if (missingVariables.length) {
+    const fileHelp = configResult.error
+      ? 'Die Datei .env.deploy fehlt. Kopiere deploy.env.example nach .env.deploy und trage deine SFTP-Zugangsdaten ein.'
+      : 'Bitte ergänze diese Werte in .env.deploy oder in den Umgebungsvariablen.'
+    throw new Error(`Fehlende Umgebungsvariablen: ${missingVariables.join(', ')}. ${fileHelp}`)
   }
 
   const localBuildDirectory = path.resolve(process.cwd(), process.env.LOCAL_BUILD_DIR.trim())
@@ -36,6 +41,11 @@ async function deploy() {
     path.posix.normalize(remoteDeployDirectory) === '/'
   ) {
     throw new Error('REMOTE_DEPLOY_DIR muss ein absoluter Zielordner außerhalb des Server-Hauptverzeichnisses sein und darf keine .- oder ..-Segmente enthalten.')
+  }
+
+  if (process.argv.includes('--check')) {
+    console.log('Deployment-Konfiguration ist vollständig und gültig. Es wurde keine Serververbindung geprüft.')
+    return
   }
 
   if (!fs.existsSync(localBuildDirectory) || !fs.statSync(localBuildDirectory).isDirectory()) {

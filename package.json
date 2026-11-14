@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "npm run build && node deploy.js",
+    "deploy": "node deploy.js --check && npm run build && node deploy.js",
+    "deploy:check": "node deploy.js --check",
     "deploy:upload": "node deploy.js",
     "lint": "eslint .",
     "preview": "vite preview"
