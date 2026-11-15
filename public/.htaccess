@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(partner-services|impressum|datenschutz)/?$ /index.html [L]
+</IfModule>

@@ -4,11 +4,12 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  MessageCircle,
   Phone,
   Twitter,
 } from "lucide-react";
 
-const Footer = ({ text, nav, isPartnerPage }) => {
+const Footer = ({ text, nav, isSubpage }) => {
   return (
     <footer
       id="contact"
@@ -39,7 +40,7 @@ const Footer = ({ text, nav, isPartnerPage }) => {
           </p>
 
           {/* Primary Contact Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center mb-8">
             <a
               href="mailto:patrick-kamdem@patelot.de"
               className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-[#9CAF88] to-[#556B2F] text-black px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-[#9CAF88]/25 transition-all duration-300 overflow-hidden"
@@ -56,6 +57,17 @@ const Footer = ({ text, nav, isPartnerPage }) => {
               <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Phone className="w-5 h-5 relative z-10" />
               <span className="relative z-10">{text.call}</span>
+            </a>
+
+            <a
+              href="https://wa.me/491714170604"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-700 text-white px-8 py-4 rounded-2xl font-bold text-lg border border-slate-600 hover:border-[#9CAF88] hover:scale-105 hover:shadow-2xl hover:shadow-slate-800/25 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#9CAF88]/10 to-[#556B2F]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <MessageCircle className="w-5 h-5 relative z-10" aria-hidden="true" />
+              <span className="relative z-10">{text.whatsapp}</span>
             </a>
           </div>
 
@@ -138,7 +150,7 @@ const Footer = ({ text, nav, isPartnerPage }) => {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <a
-                  href={isPartnerPage ? "/#home" : "#home"}
+                  href={isSubpage ? "/#home" : "#home"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
@@ -147,7 +159,7 @@ const Footer = ({ text, nav, isPartnerPage }) => {
               </li>
               <li>
                 <a
-                  href={isPartnerPage ? "/#skills" : "#skills"}
+                  href={isSubpage ? "/#skills" : "#skills"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
@@ -156,7 +168,7 @@ const Footer = ({ text, nav, isPartnerPage }) => {
               </li>
               <li>
                 <a
-                  href={isPartnerPage ? "/#projects" : "#projects"}
+                  href={isSubpage ? "/#projects" : "#projects"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
@@ -178,6 +190,10 @@ const Footer = ({ text, nav, isPartnerPage }) => {
 
         {/* Bottom Section */}
         <div className="border-t border-slate-800 pt-8">
+          <nav aria-label={text.legalNavigation} className="flex flex-wrap gap-4 mb-6 text-sm text-gray-400">
+            <a href="/impressum" className="hover:text-white">{text.imprint}</a>
+            <a href="/datenschutz" className="hover:text-white">{text.privacyPolicy}</a>
+          </nav>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 mb-6 md:mb-0">
               <p className="flex items-center gap-2">

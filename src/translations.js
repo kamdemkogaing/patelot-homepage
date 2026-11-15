@@ -70,7 +70,7 @@ export const translations = {
     footer: {
       together: "Lass uns zusammenarbeiten", heading: "Bereit, Dein Projekt zu starten?",
       intro: "Ich freue mich auf Deine Rückmeldung und helfe Dir gerne bei Deinem nächsten Projekt.",
-      email: "E-Mail senden", call: "Anrufen",
+      email: "E-Mail senden", call: "Anrufen", whatsapp: "WhatsApp-Chat", legalNavigation: "Rechtliche Informationen", imprint: "Impressum", privacyPolicy: "Datenschutzerklärung",
       bio: "Full-Stack Entwickler mit Leidenschaft für die Erstellung schöner und funktionaler Web-Erlebnisse. Spezialisiert auf moderne Technologien und die Bereitstellung außergewöhnlicher digitaler Lösungen.",
       country: "Deutschland", services: "Dienstleistungen", serviceItems: ["Webentwicklung", "E-Commerce Lösungen", "Beratung", "Support"],
       quick: "Schnellzugriff", created: "Erstellt mit", rights: "Alle Rechte vorbehalten.",
@@ -128,7 +128,7 @@ export const translations = {
     footer: {
       together: "Let's work together", heading: "Ready to start your project?",
       intro: "I look forward to hearing from you and helping with your next project.",
-      email: "Send an email", call: "Call",
+      email: "Send an email", call: "Call", whatsapp: "WhatsApp chat", legalNavigation: "Legal information", imprint: "Legal notice", privacyPolicy: "Privacy policy",
       bio: "Full-stack developer passionate about creating beautiful, functional web experiences, specialising in modern technologies and digital solutions.",
       country: "Germany", services: "Services", serviceItems: ["Web development", "E-commerce solutions", "Consulting", "Support"],
       quick: "Quick links", created: "Made with", rights: "All rights reserved.",
@@ -186,7 +186,7 @@ export const translations = {
     footer: {
       together: "Travaillons ensemble", heading: "Prêt à lancer votre projet ?",
       intro: "Je serai ravi d'échanger avec vous et de vous accompagner dans votre prochain projet.",
-      email: "Envoyer un e-mail", call: "Appeler",
+      email: "Envoyer un e-mail", call: "Appeler", whatsapp: "Discussion WhatsApp", legalNavigation: "Informations légales", imprint: "Mentions légales", privacyPolicy: "Politique de confidentialité",
       bio: "Développeur full-stack passionné par la création d'expériences web esthétiques et fonctionnelles, spécialisé dans les technologies modernes et les solutions numériques.",
       country: "Allemagne", services: "Services", serviceItems: ["Développement web", "Solutions e-commerce", "Conseil", "Support"],
       quick: "Accès rapide", created: "Créé avec", rights: "Tous droits réservés.",
@@ -218,7 +218,7 @@ export const partnerTranslations = {
     ] },
     details: { eyebrow: "Im Überblick", heading: "Mehr über die Leistungen", inquire: "Zu dieser Leistung anfragen" },
     partners: { eyebrow: "Anbieter & Technologien", heading: "Partnerlösungen für Ihr Business", description: "patelot.cloud vermittelt ausgewählte IT-Produkte und digitale Dienstleistungen und möchte diese künftig auch als Reseller anbieten.", note: "IONOS, Shopware und Microsoft sind Beispiele für mögliche Anbieter oder Technologien. Eine offizielle Partnerschaft wird damit nicht behauptet.", providersLabel: "Beispiele für Anbieter und Technologien" },
-    packages: { eyebrow: "Unsere Angebote", heading: "Unsere IT-Servicepakete", intro: "Unverbindliche Einstiegspreise für Ihren individuellen Bedarf.", from: "ab", periods: { once: "einmalig", monthly: "monatlich" }, onRequest: "Preis auf Anfrage", monthlyNote: "Der konkrete Leistungsumfang wird vor Vertragsabschluss individuell vereinbart.", inquire: "Leistung anfragen", items: {
+    packages: { eyebrow: "Unsere Angebote", heading: "Unsere IT-Servicepakete", intro: "Unverbindliche Einstiegspreise für Ihren individuellen Bedarf.", from: "ab", periods: { once: "einmalig", monthly: "monatlich" }, onRequest: "Preis auf Anfrage", monthlyNote: "Der konkrete Leistungsumfang wird vor Vertragsabschluss individuell vereinbart.", inquire: "Leistung anfragen", paymentLabel: "Akzeptierte Zahlungsarten:", paymentMethods: "Vorkasse, PayPal und Kreditkarte.", items: {
       "website-check": { title: "Website-Check", description: "Eine erste Einschätzung Ihres Webauftritts und möglicher Verbesserungen." },
       "website-care": { title: "Website-Betreuung", description: "Laufende Unterstützung für Ihren Webauftritt, abgestimmt auf Ihren Bedarf." },
       "shopware-consulting": { title: "Shopware- und E-Commerce-Beratung", description: "Beratung zu Ihrer Shopware-Lösung und Ihren E-Commerce-Anforderungen." },
@@ -253,7 +253,7 @@ export const partnerTranslations = {
     ] },
     details: { eyebrow: "At a glance", heading: "More about our services", inquire: "Ask about this service" },
     partners: { eyebrow: "Providers & technologies", heading: "Partner solutions for your business", description: "patelot.cloud connects businesses with selected IT products and digital services and plans to offer them as a reseller in the future.", note: "IONOS, Shopware and Microsoft are examples of possible providers or technologies. No official partnership is implied.", providersLabel: "Examples of providers and technologies" },
-    packages: { eyebrow: "Our offers", heading: "Our IT service packages", intro: "Indicative starting prices tailored to your individual needs.", from: "from", periods: { once: "one-off", monthly: "per month" }, onRequest: "Price on request", monthlyNote: "The exact scope of monthly services is agreed individually before a contract is concluded.", inquire: "Enquire about this service", items: {
+    packages: { eyebrow: "Our offers", heading: "Our IT service packages", intro: "Indicative starting prices tailored to your individual needs.", from: "from", periods: { once: "one-off", monthly: "per month" }, onRequest: "Price on request", monthlyNote: "The exact scope of monthly services is agreed individually before a contract is concluded.", inquire: "Enquire about this service", paymentLabel: "Accepted payment methods:", paymentMethods: "Advance payment, PayPal and credit card.", items: {
       "website-check": { title: "Website check", description: "An initial assessment of your website and possible improvements." },
       "website-care": { title: "Website care", description: "Ongoing support for your website, tailored to your needs." },
       "shopware-consulting": { title: "Shopware and e-commerce consulting", description: "Advice on your Shopware solution and e-commerce requirements." },
@@ -288,7 +288,7 @@ export const partnerTranslations = {
     ] },
     details: { eyebrow: "En détail", heading: "En savoir plus sur nos prestations", inquire: "Demander cette prestation" },
     partners: { eyebrow: "Fournisseurs & technologies", heading: "Des solutions partenaires pour votre entreprise", description: "patelot.cloud met en relation ses clients avec des produits informatiques et services numériques sélectionnés et souhaite également les proposer à l'avenir en tant que revendeur.", note: "IONOS, Shopware et Microsoft sont des exemples de fournisseurs ou de technologies possibles. Aucun partenariat officiel n'est affirmé.", providersLabel: "Exemples de fournisseurs et technologies" },
-    packages: { eyebrow: "Nos offres", heading: "Nos forfaits de services informatiques", intro: "Des prix indicatifs de départ adaptés à vos besoins.", from: "à partir de", periods: { once: "en une fois", monthly: "par mois" }, onRequest: "Prix sur demande", monthlyNote: "Le contenu précis des prestations mensuelles est convenu individuellement avant la conclusion du contrat.", inquire: "Demander cette prestation", items: {
+    packages: { eyebrow: "Nos offres", heading: "Nos forfaits de services informatiques", intro: "Des prix indicatifs de départ adaptés à vos besoins.", from: "à partir de", periods: { once: "en une fois", monthly: "par mois" }, onRequest: "Prix sur demande", monthlyNote: "Le contenu précis des prestations mensuelles est convenu individuellement avant la conclusion du contrat.", inquire: "Demander cette prestation", paymentLabel: "Moyens de paiement acceptés :", paymentMethods: "Paiement d'avance, PayPal et carte bancaire.", items: {
       "website-check": { title: "Diagnostic de site web", description: "Une première évaluation de votre site et des améliorations possibles." },
       "website-care": { title: "Suivi de site web", description: "Un accompagnement continu pour votre site, adapté à vos besoins." },
       "shopware-consulting": { title: "Conseil Shopware et e-commerce", description: "Des conseils pour votre solution Shopware et vos besoins en e-commerce." },

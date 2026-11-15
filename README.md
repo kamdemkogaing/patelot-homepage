@@ -17,6 +17,15 @@ E-Mail-Programm eingerichtet sein und die Nachricht dort selbst versendet
 werden. Die Website kann weder den Versand noch den Empfang bestätigen.
 Die Formulardaten werden nicht von der Website gespeichert oder an ein
 Backend übermittelt. E-Mail ist nicht zwangsläufig Ende-zu-Ende verschlüsselt.
+Der WhatsApp-Link im Footer öffnet WhatsApp als externen Dienst. Die
+angezeigten Zahlungsarten sind Informationen; die Website bietet keinen
+Checkout oder eine eigene Zahlungsabwicklung.
+
+Im Footer sind Entwürfe für Impressum (`/impressum`) und Datenschutzerklärung
+(`/datenschutz`) verlinkt. Angaben zum Hosting, zu Serverprotokollen und den
+eingesetzten E-Mail- und WhatsApp-Diensten müssen ergänzt werden. Die Texte
+und die Rechtsgrundlagen sind vor einer Veröffentlichung rechtlich zu prüfen;
+die Entwurfskennzeichnung erst danach entfernen.
 
 Die Preisvorschläge und Affiliate-Links stehen zentral in
 `src/config/partnerOffers.js`. Noch nicht bestätigte Links bleiben `null`;
@@ -25,13 +34,18 @@ dessen Bedingungen zu prüfen. Eingetragene Links werden als Werbung und
 Affiliate-Links gekennzeichnet. Vor Veröffentlichung beziehungsweise
 Aktivierung von Partnerlinks sind die Datenschutzhinweise, einschließlich
 E-Mail-Kontakt und etwaiger Partner-Tracking-Verfahren, rechtlich zu prüfen
-und zu ergänzen. Auch die Preisangaben und insbesondere die zutreffenden
+und zu ergänzen; dabei ist auch der WhatsApp-Kontakt zu berücksichtigen.
+Auch die Preisangaben und insbesondere die zutreffenden
 Umsatzsteuerhinweise müssen vor Veröffentlichung geprüft werden.
 
 Für den direkten Aufruf und Refresh von `/partner-services` muss der
 Produktions-Webserver unbekannte App-Pfade auf `index.html` zurückleiten.
-Diese Weiterleitung ist auf dem Hosting vor der Veröffentlichung einzurichten
-und zu testen; die Deployment-Konfiguration wurde nicht geändert. Titel und
+Für Apache enthält `public/.htaccess` eine auf `/partner-services`, `/impressum`
+und `/datenschutz` begrenzte Rewrite-Regel. Auf dem Hosting müssen `mod_rewrite` und `.htaccess`-Overrides
+aktiviert sein. Falls dort bereits eine `.htaccess` besteht, die Regel mit der
+vorhandenen Konfiguration zusammenführen, statt diese zu überschreiben.
+Direktaufruf und Refresh müssen nach der Veröffentlichung getestet werden;
+die Deployment-Konfiguration wurde nicht geändert. Titel und
 Meta-Beschreibung der Partnerseite werden im Browser gesetzt und setzen für
 die Indexierung einen Crawler voraus, der JavaScript ausführt.
 

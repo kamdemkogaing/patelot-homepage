@@ -194,6 +194,41 @@
   font-size: .9rem;
 }
 
+.partner-page .partner-payment-methods {
+  margin-top: 1.5rem;
+  color: #c1cfc3;
+  font-size: .9rem;
+}
+
+.partner-page .partner-payment-methods strong {
+  color: #e8f4e3;
+}
+
+.partner-page .legal-content {
+  display: grid;
+  gap: 1rem;
+  max-width: 55rem;
+}
+
+.partner-page .legal-heading,
+.partner-page .legal-content {
+  overflow-wrap: anywhere;
+}
+
+.partner-page .legal-content h2 {
+  font-size: 1.25rem;
+}
+
+.partner-page .legal-content a {
+  color: #c4e760;
+  overflow-wrap: anywhere;
+}
+
+.partner-page .legal-draft-notice {
+  max-width: 55rem;
+  color: #e8f4e3;
+}
+
 .partner-page .partner-affiliate-link {
   margin-top: 1rem;
 }

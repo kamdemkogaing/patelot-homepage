@@ -31,12 +31,12 @@ const getScrollProgress = () => {
     : 0;
 };
 
-const Header = ({ text, language, setLanguage, isPartnerPage, partnerNav }) => {
+const Header = ({ text, language, setLanguage, isPartnerPage, isSubpage, partnerNav }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 20);
   const [scrollProgress, setScrollProgress] = useState(getScrollProgress);
-  const [activeSection, setActiveSection] = useState(isPartnerPage ? "/partner-services" : "#home");
-  const linkTarget = (href) => isPartnerPage && href.startsWith("#") ? `/${href}` : href;
+  const [activeSection, setActiveSection] = useState(isPartnerPage ? "/partner-services" : isSubpage ? "" : "#home");
+  const linkTarget = (href) => isSubpage && href.startsWith("#") ? `/${href}` : href;
   const linkLabel = (index) => index === 6 ? partnerNav : text.nav[index];
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const Header = ({ text, language, setLanguage, isPartnerPage, partnerNav }) => {
       if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1) {
         active = "#contact";
       }
-      setActiveSection(isPartnerPage ? "/partner-services" : active);
+      setActiveSection(isPartnerPage ? "/partner-services" : isSubpage ? "" : active);
     };
 
     const frame = window.requestAnimationFrame(handleScroll);
@@ -65,7 +65,7 @@ const Header = ({ text, language, setLanguage, isPartnerPage, partnerNav }) => {
       window.removeEventListener("resize", handleScroll);
       window.cancelAnimationFrame(frame);
     };
-  }, [isPartnerPage]);
+  }, [isPartnerPage, isSubpage]);
 
   return (
     <header

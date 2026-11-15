@@ -7,10 +7,16 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import { useEffect, useState } from "react";
 import { partnerTranslations, translations } from "./translations";
+import { legalTranslations } from "./legalTranslations";
 import PartnerServices from "./pages/PartnerServices";
+import LegalPage from "./pages/LegalPage";
 
 function App() {
   const isPartnerPage = /^\/partner-services\/?$/.test(window.location.pathname);
+  const legalPage = /^\/impressum\/?$/.test(window.location.pathname)
+    ? "imprint"
+    : /^\/datenschutz\/?$/.test(window.location.pathname) ? "privacy" : null;
+  const isSubpage = isPartnerPage || Boolean(legalPage);
   const [language, setLanguage] = useState(() => {
     try {
       const saved = localStorage.getItem("portfolio-language");
@@ -32,7 +38,7 @@ function App() {
   }, [language]);
 
   useEffect(() => {
-    if (!isPartnerPage) return;
+    if (!isPartnerPage && !legalPage) return;
     const previousTitle = document.title;
     let meta = document.querySelector('meta[name="description"]');
     const previousDescription = meta?.getAttribute("content");
@@ -42,21 +48,24 @@ function App() {
       meta.name = "description";
       document.head.appendChild(meta);
     }
-    document.title = partnerTranslations[language].seo.title;
-    meta.setAttribute("content", partnerTranslations[language].seo.description);
+    document.title = isPartnerPage ? partnerTranslations[language].seo.title : `${legalTranslations[language][legalPage]} | patelot.cloud`;
+    if (isPartnerPage) meta.setAttribute("content", partnerTranslations[language].seo.description);
+    else meta.removeAttribute("content");
     return () => {
       document.title = previousTitle;
       if (created) meta.remove();
       else if (previousDescription === null) meta.removeAttribute("content");
       else meta.setAttribute("content", previousDescription);
     };
-  }, [isPartnerPage, language]);
+  }, [isPartnerPage, legalPage, language]);
 
   return (
     <div className="min-h-screen bg-black">
-      <Header text={text} language={language} setLanguage={setLanguage} isPartnerPage={isPartnerPage} partnerNav={partnerTranslations[language].nav} />
+      <Header text={text} language={language} setLanguage={setLanguage} isPartnerPage={isPartnerPage} isSubpage={isSubpage} partnerNav={partnerTranslations[language].nav} />
       {isPartnerPage ? (
         <PartnerServices text={partnerTranslations[language]} />
+      ) : legalPage ? (
+        <LegalPage text={legalTranslations[language]} page={legalPage} />
       ) : (
         <>
           <Hero text={text.hero} />
@@ -66,7 +75,7 @@ function App() {
           <Projects text={text.projects} />
         </>
       )}
-      <Footer text={text.footer} nav={text.nav} isPartnerPage={isPartnerPage} />
+      <Footer text={text.footer} nav={text.nav} isSubpage={isSubpage} />
     </div>
   );
 }

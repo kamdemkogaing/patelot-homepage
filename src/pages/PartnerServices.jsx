@@ -110,6 +110,9 @@ const PartnerServices = ({ text }) => {
           </article>
         ))}
       </div>
+      <p className="partner-payment-methods">
+        <strong>{text.packages.paymentLabel}</strong> {text.packages.paymentMethods}
+      </p>
     </section>
 
     <section className="partner-section partner-band" aria-labelledby="partner-recommendations-heading">
