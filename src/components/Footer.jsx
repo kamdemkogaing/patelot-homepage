@@ -8,7 +8,7 @@ import {
   Twitter,
 } from "lucide-react";
 
-const Footer = ({ text, nav }) => {
+const Footer = ({ text, nav, isPartnerPage }) => {
   return (
     <footer
       id="contact"
@@ -138,7 +138,7 @@ const Footer = ({ text, nav }) => {
             <ul className="space-y-3 text-gray-400">
               <li>
                 <a
-                  href="#home"
+                  href={isPartnerPage ? "/#home" : "#home"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
@@ -147,7 +147,7 @@ const Footer = ({ text, nav }) => {
               </li>
               <li>
                 <a
-                  href="#skills"
+                  href={isPartnerPage ? "/#skills" : "#skills"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>
@@ -156,7 +156,7 @@ const Footer = ({ text, nav }) => {
               </li>
               <li>
                 <a
-                  href="#projects"
+                  href={isPartnerPage ? "/#projects" : "#projects"}
                   className="hover:text-[#9CAF88] transition-colors duration-200 flex items-center gap-2"
                 >
                   <div className="w-1.5 h-1.5 bg-[#9CAF88] rounded-full"></div>

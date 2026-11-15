@@ -193,3 +193,111 @@ export const translations = {
     },
   },
 };
+
+export const partnerTranslations = {
+  de: {
+    nav: "Partner & Services",
+    seo: { title: "IT-Lösungen & Partner Services | patelot.cloud", description: "Persönliche Beratung und Betreuung für Hosting, Domains, E-Commerce, Cloud-Lösungen und IT-Support." },
+    hero: { eyebrow: "patelot.cloud · Partner Services", title: "IT-Lösungen & Partner Services", subtitle: "Digitale Lösungen für Ihr Unternehmen – zuverlässig, flexibel und persönlich betreut.", description: "patelot.cloud unterstützt Unternehmen bei der Auswahl, Einrichtung und Betreuung moderner IT-Lösungen – von Hosting und Domains über E-Commerce bis hin zu Cloud-Services.", solutions: "Lösungen entdecken", inquiry: "Beratung anfragen" },
+    solutions: { eyebrow: "Unsere Leistungen", heading: "Unsere Lösungen", intro: "Die passende technische Grundlage für Ihr Unternehmen – auf Ihren Bedarf abgestimmt.", more: "Mehr erfahren" },
+    services: [
+      { id: "hosting", title: "Hosting & Domains", items: ["Webhosting", "Domains", "SSL-Zertifikate", "Geschäftliche E-Mail-Adressen"], description: "Von der Domain über Hosting und SSL bis zur geschäftlichen E-Mail: Gemeinsam finden wir eine passende Grundlage für Ihren Webauftritt." },
+      { id: "ecommerce", title: "E-Commerce & Shopware", items: ["Shopware-Beratung", "Einrichtung und Konfiguration", "Erweiterungen und Integrationen", "Shop-Optimierung"], description: "Ich unterstütze Sie bei Beratung, Einrichtung, Integrationen und Optimierung Ihrer Shopware-Lösung." },
+      { id: "cloud", title: "Business & Cloud", items: ["Microsoft 365", "Cloud-Lösungen", "Business-Software", "Zusammenarbeit und Produktivität"], description: "Gemeinsam wählen wir geeignete Anwendungen und Cloud-Lösungen für Zusammenarbeit und produktive Geschäftsabläufe aus." },
+      { id: "security", title: "IT-Sicherheit & Support", items: ["Backup-Lösungen", "Website-Wartung", "Sicherheitsupdates", "Technischer Support"], description: "Unterstützung bei Backups, Wartung, Sicherheitsupdates und technischen Fragen – abgestimmt auf Ihre Anforderungen." },
+    ],
+    advantages: { eyebrow: "Ihre Vorteile", heading: "Warum patelot.cloud?", items: [
+      { title: "Persönliche IT-Beratung", description: "Direkter Austausch und verständliche Empfehlungen für Ihre individuellen Anforderungen." },
+      { title: "Individuelle und skalierbare Lösungen", description: "Technologien, die zu Ihrem Unternehmen passen und mit Ihrem Bedarf wachsen können." },
+      { title: "Technische Betreuung aus einer Hand", description: "Ein Ansprechpartner für Auswahl, Einrichtung und technische Betreuung." },
+    ] },
+    steps: { eyebrow: "Einfach und transparent", heading: "So funktioniert es", items: [
+      { title: "Bedarf besprechen", description: "Wir sprechen über Ihre Ziele, Anforderungen und bestehende Umgebung." },
+      { title: "Passende Lösung auswählen", description: "Wir wählen geeignete Produkte und Dienstleistungen für Ihren Bedarf." },
+      { title: "Einrichten und betreuen", description: "Ich unterstütze Sie bei Einrichtung und weiterer technischer Betreuung." },
+    ] },
+    details: { eyebrow: "Im Überblick", heading: "Mehr über die Leistungen", inquire: "Zu dieser Leistung anfragen" },
+    partners: { eyebrow: "Anbieter & Technologien", heading: "Partnerlösungen für Ihr Business", description: "patelot.cloud vermittelt ausgewählte IT-Produkte und digitale Dienstleistungen und möchte diese künftig auch als Reseller anbieten.", note: "IONOS, Shopware und Microsoft sind Beispiele für mögliche Anbieter oder Technologien. Eine offizielle Partnerschaft wird damit nicht behauptet.", providersLabel: "Beispiele für Anbieter und Technologien" },
+    packages: { eyebrow: "Unsere Angebote", heading: "Unsere IT-Servicepakete", intro: "Unverbindliche Einstiegspreise für Ihren individuellen Bedarf.", from: "ab", periods: { once: "einmalig", monthly: "monatlich" }, onRequest: "Preis auf Anfrage", monthlyNote: "Der konkrete Leistungsumfang wird vor Vertragsabschluss individuell vereinbart.", inquire: "Leistung anfragen", items: {
+      "website-check": { title: "Website-Check", description: "Eine erste Einschätzung Ihres Webauftritts und möglicher Verbesserungen." },
+      "website-care": { title: "Website-Betreuung", description: "Laufende Unterstützung für Ihren Webauftritt, abgestimmt auf Ihren Bedarf." },
+      "shopware-consulting": { title: "Shopware- und E-Commerce-Beratung", description: "Beratung zu Ihrer Shopware-Lösung und Ihren E-Commerce-Anforderungen." },
+    } },
+    recommendations: { eyebrow: "Digitale Lösungen", heading: "Empfohlene IT-Lösungen", intro: "Orientierung für die Auswahl passender Lösungen für Ihr Unternehmen.", advertisement: "Werbung – Affiliate-Link; bei einem Abschluss kann ich eine Provision erhalten", link: "Angebot ansehen", items: {
+      hosting: { title: "Hosting", description: "Eine passende technische Grundlage für Ihren Webauftritt." },
+      domains: { title: "Domains", description: "Die passende Internetadresse für Ihr Unternehmen." },
+      cloud: { title: "Cloud-Software", description: "Digitale Werkzeuge für Zusammenarbeit und Geschäftsprozesse." },
+    } },
+    inquiry: { eyebrow: "Kontakt", heading: "Sprechen wir über Ihr Vorhaben", intro: "Beschreiben Sie Ihren Bedarf – gemeinsam finden wir den passenden nächsten Schritt.", notice: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit einem Entwurf. Bitte prüfen und senden Sie die E-Mail dort selbst. Es erfolgt keine automatische Übermittlung.", emailLink: "E-Mail schreiben", name: "Name", company: "Unternehmen (optional)", email: "E-Mail", service: "Gewünschte Leistung", choose: "Bitte auswählen", message: "Nachricht", privacy: "Ihre Angaben werden für den E-Mail-Entwurf an Ihr E-Mail-Programm übergeben, nicht über diese Website versendet.", subject: "Anfrage zu", submit: "E-Mail-Entwurf öffnen" },
+  },
+  en: {
+    nav: "Partners & Services",
+    seo: { title: "IT Solutions & Partner Services | patelot.cloud", description: "Personal advice and support for hosting, domains, e-commerce, cloud solutions and IT support." },
+    hero: { eyebrow: "patelot.cloud · Partner Services", title: "IT Solutions & Partner Services", subtitle: "Digital solutions for your business – reliable, flexible and personally supported.", description: "patelot.cloud helps businesses select, set up and maintain modern IT solutions – from hosting and domains to e-commerce and cloud services.", solutions: "Explore solutions", inquiry: "Request a consultation" },
+    solutions: { eyebrow: "Our services", heading: "Our solutions", intro: "The right technical foundation for your business, tailored to your needs.", more: "Learn more" },
+    services: [
+      { id: "hosting", title: "Hosting & Domains", items: ["Web hosting", "Domains", "SSL certificates", "Business email addresses"], description: "From domains and hosting to SSL and business email, we can find the right foundation for your online presence." },
+      { id: "ecommerce", title: "E-Commerce & Shopware", items: ["Shopware consulting", "Setup and configuration", "Extensions and integrations", "Shop optimisation"], description: "I support you with consulting, setup, integrations and optimisation of your Shopware solution." },
+      { id: "cloud", title: "Business & Cloud", items: ["Microsoft 365", "Cloud solutions", "Business software", "Collaboration and productivity"], description: "Together we select suitable applications and cloud solutions for collaboration and productive business processes." },
+      { id: "security", title: "IT Security & Support", items: ["Backup solutions", "Website maintenance", "Security updates", "Technical support"], description: "Support for backups, maintenance, security updates and technical questions, tailored to your needs." },
+    ],
+    advantages: { eyebrow: "Your benefits", heading: "Why patelot.cloud?", items: [
+      { title: "Personal IT consulting", description: "Direct communication and clear recommendations for your individual requirements." },
+      { title: "Tailored, scalable solutions", description: "Technologies that fit your business and can grow with your needs." },
+      { title: "Technical support from one source", description: "One point of contact for selection, setup and technical support." },
+    ] },
+    steps: { eyebrow: "Simple and transparent", heading: "How it works", items: [
+      { title: "Discuss your needs", description: "We discuss your goals, requirements and existing environment." },
+      { title: "Choose the right solution", description: "We select suitable products and services for your needs." },
+      { title: "Set up and support", description: "I help with setup and ongoing technical support." },
+    ] },
+    details: { eyebrow: "At a glance", heading: "More about our services", inquire: "Ask about this service" },
+    partners: { eyebrow: "Providers & technologies", heading: "Partner solutions for your business", description: "patelot.cloud connects businesses with selected IT products and digital services and plans to offer them as a reseller in the future.", note: "IONOS, Shopware and Microsoft are examples of possible providers or technologies. No official partnership is implied.", providersLabel: "Examples of providers and technologies" },
+    packages: { eyebrow: "Our offers", heading: "Our IT service packages", intro: "Indicative starting prices tailored to your individual needs.", from: "from", periods: { once: "one-off", monthly: "per month" }, onRequest: "Price on request", monthlyNote: "The exact scope of monthly services is agreed individually before a contract is concluded.", inquire: "Enquire about this service", items: {
+      "website-check": { title: "Website check", description: "An initial assessment of your website and possible improvements." },
+      "website-care": { title: "Website care", description: "Ongoing support for your website, tailored to your needs." },
+      "shopware-consulting": { title: "Shopware and e-commerce consulting", description: "Advice on your Shopware solution and e-commerce requirements." },
+    } },
+    recommendations: { eyebrow: "Digital solutions", heading: "Recommended IT solutions", intro: "Guidance for choosing suitable solutions for your business.", advertisement: "Advertisement – affiliate link; I may receive a commission if you purchase", link: "View offer", items: {
+      hosting: { title: "Hosting", description: "A suitable technical foundation for your website." },
+      domains: { title: "Domains", description: "The right web address for your business." },
+      cloud: { title: "Cloud software", description: "Digital tools for collaboration and business processes." },
+    } },
+    inquiry: { eyebrow: "Contact", heading: "Let's discuss your project", intro: "Tell me what you need and together we can find the next step.", notice: "Submitting opens a draft in your email app. Please review and send the email yourself. Nothing is sent automatically.", emailLink: "Write an email", name: "Name", company: "Company (optional)", email: "Email", service: "Desired service", choose: "Please select", message: "Message", privacy: "Your details are passed to your email app for the draft, not sent through this website.", subject: "Enquiry about", submit: "Open email draft" },
+  },
+  fr: {
+    nav: "Partenaires & Services",
+    seo: { title: "Solutions informatiques & services partenaires | patelot.cloud", description: "Conseil et accompagnement personnalisés pour l'hébergement, les domaines, l'e-commerce, le cloud et le support informatique." },
+    hero: { eyebrow: "patelot.cloud · Services partenaires", title: "Solutions informatiques & services partenaires", subtitle: "Des solutions numériques pour votre entreprise – fiables, flexibles et accompagnées personnellement.", description: "patelot.cloud accompagne les entreprises dans le choix, la mise en place et le suivi de solutions informatiques modernes, de l'hébergement et des domaines à l'e-commerce et aux services cloud.", solutions: "Découvrir les solutions", inquiry: "Demander un conseil" },
+    solutions: { eyebrow: "Nos prestations", heading: "Nos solutions", intro: "Une base technique adaptée aux besoins de votre entreprise.", more: "En savoir plus" },
+    services: [
+      { id: "hosting", title: "Hébergement & domaines", items: ["Hébergement web", "Noms de domaine", "Certificats SSL", "Adresses e-mail professionnelles"], description: "Du domaine à l'hébergement, au SSL et aux e-mails professionnels, trouvons une base adaptée à votre présence en ligne." },
+      { id: "ecommerce", title: "E-commerce & Shopware", items: ["Conseil Shopware", "Installation et configuration", "Extensions et intégrations", "Optimisation de boutique"], description: "Je vous accompagne dans le conseil, l'installation, les intégrations et l'optimisation de votre solution Shopware." },
+      { id: "cloud", title: "Business & cloud", items: ["Microsoft 365", "Solutions cloud", "Logiciels professionnels", "Collaboration et productivité"], description: "Ensemble, nous choisissons les applications et solutions cloud adaptées à la collaboration et aux processus de votre entreprise." },
+      { id: "security", title: "Sécurité informatique & support", items: ["Solutions de sauvegarde", "Maintenance de site web", "Mises à jour de sécurité", "Support technique"], description: "Un accompagnement adapté pour les sauvegardes, la maintenance, les mises à jour de sécurité et vos questions techniques." },
+    ],
+    advantages: { eyebrow: "Vos avantages", heading: "Pourquoi patelot.cloud ?", items: [
+      { title: "Conseil informatique personnalisé", description: "Un échange direct et des recommandations claires adaptées à vos besoins." },
+      { title: "Solutions personnalisées et évolutives", description: "Des technologies adaptées à votre entreprise et capables d'évoluer avec vos besoins." },
+      { title: "Un interlocuteur technique unique", description: "Un interlocuteur pour le choix, la mise en place et l'accompagnement technique." },
+    ] },
+    steps: { eyebrow: "Simple et transparent", heading: "Comment ça marche", items: [
+      { title: "Échanger sur vos besoins", description: "Nous discutons de vos objectifs, de vos besoins et de votre environnement existant." },
+      { title: "Choisir la bonne solution", description: "Nous sélectionnons des produits et services adaptés à vos besoins." },
+      { title: "Installer et accompagner", description: "Je vous accompagne dans la mise en place et le suivi technique." },
+    ] },
+    details: { eyebrow: "En détail", heading: "En savoir plus sur nos prestations", inquire: "Demander cette prestation" },
+    partners: { eyebrow: "Fournisseurs & technologies", heading: "Des solutions partenaires pour votre entreprise", description: "patelot.cloud met en relation ses clients avec des produits informatiques et services numériques sélectionnés et souhaite également les proposer à l'avenir en tant que revendeur.", note: "IONOS, Shopware et Microsoft sont des exemples de fournisseurs ou de technologies possibles. Aucun partenariat officiel n'est affirmé.", providersLabel: "Exemples de fournisseurs et technologies" },
+    packages: { eyebrow: "Nos offres", heading: "Nos forfaits de services informatiques", intro: "Des prix indicatifs de départ adaptés à vos besoins.", from: "à partir de", periods: { once: "en une fois", monthly: "par mois" }, onRequest: "Prix sur demande", monthlyNote: "Le contenu précis des prestations mensuelles est convenu individuellement avant la conclusion du contrat.", inquire: "Demander cette prestation", items: {
+      "website-check": { title: "Diagnostic de site web", description: "Une première évaluation de votre site et des améliorations possibles." },
+      "website-care": { title: "Suivi de site web", description: "Un accompagnement continu pour votre site, adapté à vos besoins." },
+      "shopware-consulting": { title: "Conseil Shopware et e-commerce", description: "Des conseils pour votre solution Shopware et vos besoins en e-commerce." },
+    } },
+    recommendations: { eyebrow: "Solutions numériques", heading: "Solutions informatiques recommandées", intro: "Un accompagnement pour choisir des solutions adaptées à votre entreprise.", advertisement: "Publicité – lien affilié ; je peux recevoir une commission en cas d'achat", link: "Voir l'offre", items: {
+      hosting: { title: "Hébergement", description: "Une base technique adaptée à votre site web." },
+      domains: { title: "Noms de domaine", description: "Une adresse web adaptée à votre entreprise." },
+      cloud: { title: "Logiciels cloud", description: "Des outils numériques pour la collaboration et les processus métiers." },
+    } },
+    inquiry: { eyebrow: "Contact", heading: "Parlons de votre projet", intro: "Décrivez vos besoins pour trouver ensemble la prochaine étape.", notice: "L'envoi ouvre un brouillon dans votre application e-mail. Veuillez le vérifier et l'envoyer vous-même. Aucun message n'est envoyé automatiquement.", emailLink: "Écrire un e-mail", name: "Nom", company: "Entreprise (facultatif)", email: "E-mail", service: "Prestation souhaitée", choose: "Veuillez choisir", message: "Message", privacy: "Vos données sont transmises à votre application e-mail pour le brouillon, et non envoyées par ce site.", subject: "Demande concernant", submit: "Ouvrir le brouillon e-mail" },
+  },
+};

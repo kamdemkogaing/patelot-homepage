@@ -3,6 +3,7 @@ import {
   Briefcase,
   Code2,
   FolderKanban,
+  Handshake,
   Home,
   Mail,
   Menu,
@@ -19,6 +20,7 @@ const navigation = [
   { href: "#experience", icon: Briefcase },
   { href: "#projects", icon: FolderKanban },
   { href: "#contact", icon: Mail },
+  { href: "/partner-services", icon: Handshake },
 ];
 
 const getScrollProgress = () => {
@@ -29,11 +31,13 @@ const getScrollProgress = () => {
     : 0;
 };
 
-const Header = ({ text, language, setLanguage }) => {
+const Header = ({ text, language, setLanguage, isPartnerPage, partnerNav }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 20);
   const [scrollProgress, setScrollProgress] = useState(getScrollProgress);
-  const [activeSection, setActiveSection] = useState("#home");
+  const [activeSection, setActiveSection] = useState(isPartnerPage ? "/partner-services" : "#home");
+  const linkTarget = (href) => isPartnerPage && href.startsWith("#") ? `/${href}` : href;
+  const linkLabel = (index) => index === 6 ? partnerNav : text.nav[index];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +45,7 @@ const Header = ({ text, language, setLanguage }) => {
       setScrollProgress(getScrollProgress());
       const marker = Math.min(window.innerHeight * 0.3, 180);
       let active = navigation[0].href;
-      for (const { href } of navigation) {
+      for (const { href } of navigation.filter((item) => item.href.startsWith("#"))) {
         const section = document.getElementById(href.slice(1));
         if (section && section.getBoundingClientRect().top <= marker) {
           active = href;
@@ -50,7 +54,7 @@ const Header = ({ text, language, setLanguage }) => {
       if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1) {
         active = "#contact";
       }
-      setActiveSection(active);
+      setActiveSection(isPartnerPage ? "/partner-services" : active);
     };
 
     const frame = window.requestAnimationFrame(handleScroll);
@@ -61,7 +65,7 @@ const Header = ({ text, language, setLanguage }) => {
       window.removeEventListener("resize", handleScroll);
       window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [isPartnerPage]);
 
   return (
     <header
@@ -77,7 +81,7 @@ const Header = ({ text, language, setLanguage }) => {
             {/* Logo Section - ganz links */}
             <div className="flex items-center gap-3 min-w-0">
               <a
-                href="#home"
+                href={linkTarget("#home")}
                 className="group flex items-center gap-2 hover:scale-105 transition-transform duration-300 min-w-0"
               >
                 <div className="relative">
@@ -108,15 +112,15 @@ const Header = ({ text, language, setLanguage }) => {
                 {navigation.map(({ href }, index) => (
                   <a
                     key={href}
-                    href={href}
+                    href={linkTarget(href)}
                     aria-current={activeSection === href ? "location" : undefined}
-                    className={`relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8cba3] ${
+                    className={`relative whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8cba3] ${
                       activeSection === href
                         ? "bg-[#9CAF88] text-slate-950 shadow-md shadow-black/20"
                         : "text-slate-300 hover:bg-white/10 hover:text-white"
                     }`}
                   >
-                    {text.nav[index]}
+                    {linkLabel(index)}
                   </a>
                 ))}
               </div>
@@ -162,14 +166,14 @@ const Header = ({ text, language, setLanguage }) => {
             id="mobile-navigation"
             aria-hidden={!isOpen}
             className={`xl:hidden overflow-hidden transition-all duration-300 ${
-              isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
+              isOpen ? "max-h-[min(32rem,75vh)] overflow-y-auto opacity-100 pb-4" : "max-h-0 opacity-0"
             }`}
           >
             <div className="space-y-1 rounded-2xl border border-white/10 bg-slate-950/60 p-2">
               {navigation.map(({ href, icon: Icon }, index) => (
                 <a
                   key={href}
-                  href={href}
+                  href={linkTarget(href)}
                   aria-current={activeSection === href ? "location" : undefined}
                   tabIndex={isOpen ? undefined : -1}
                   onClick={() => setIsOpen(false)}
@@ -180,7 +184,7 @@ const Header = ({ text, language, setLanguage }) => {
                   }`}
                 >
                   <Icon className="h-4 w-4 shrink-0 text-[#b8cba3]" aria-hidden="true" />
-                  <span className="flex-1">{text.nav[index]}</span>
+                  <span className="flex-1">{linkLabel(index)}</span>
                   <ArrowUpRight className="h-4 w-4 text-slate-500 transition-colors group-hover:text-[#b8cba3]" aria-hidden="true" />
                 </a>
               ))}

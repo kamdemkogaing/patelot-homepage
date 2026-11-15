@@ -7,6 +7,34 @@ Französisch. Die Auswahl wird lokal im Browser gespeichert; standardmäßig wir
 Deutsch verwendet. Die Texte stehen in `src/translations.js`. Der
 herunterladbare Flyer ist weiterhin nur auf Deutsch verfügbar.
 
+## Partner Services
+
+Starte die Website lokal mit `npm install` und `npm run dev`. Die neue Seite
+ist unter `http://localhost:5173/partner-services` erreichbar (Port gemäß
+Vite-Terminalausgabe). Das Anfrageformular öffnet einen vorausgefüllten
+E-Mail-Entwurf an `patrick-kamdem@patelot.de`. Zum Versand muss ein
+E-Mail-Programm eingerichtet sein und die Nachricht dort selbst versendet
+werden. Die Website kann weder den Versand noch den Empfang bestätigen.
+Die Formulardaten werden nicht von der Website gespeichert oder an ein
+Backend übermittelt. E-Mail ist nicht zwangsläufig Ende-zu-Ende verschlüsselt.
+
+Die Preisvorschläge und Affiliate-Links stehen zentral in
+`src/config/partnerOffers.js`. Noch nicht bestätigte Links bleiben `null`;
+vor dem Eintragen einer echten HTTPS-Adresse sind das Partnerprogramm und
+dessen Bedingungen zu prüfen. Eingetragene Links werden als Werbung und
+Affiliate-Links gekennzeichnet. Vor Veröffentlichung beziehungsweise
+Aktivierung von Partnerlinks sind die Datenschutzhinweise, einschließlich
+E-Mail-Kontakt und etwaiger Partner-Tracking-Verfahren, rechtlich zu prüfen
+und zu ergänzen. Auch die Preisangaben und insbesondere die zutreffenden
+Umsatzsteuerhinweise müssen vor Veröffentlichung geprüft werden.
+
+Für den direkten Aufruf und Refresh von `/partner-services` muss der
+Produktions-Webserver unbekannte App-Pfade auf `index.html` zurückleiten.
+Diese Weiterleitung ist auf dem Hosting vor der Veröffentlichung einzurichten
+und zu testen; die Deployment-Konfiguration wurde nicht geändert. Titel und
+Meta-Beschreibung der Partnerseite werden im Browser gesetzt und setzen für
+die Indexierung einen Crawler voraus, der JavaScript ausführt.
+
 ## SFTP-Deployment
 
 1. Installiere die Abhängigkeiten mit `npm install`.
