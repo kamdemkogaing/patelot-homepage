@@ -10,6 +10,7 @@ import { partnerTranslations, translations } from "./translations";
 import { legalTranslations } from "./legalTranslations";
 import PartnerServices from "./pages/PartnerServices";
 import LegalPage from "./pages/LegalPage";
+import { detectLanguage } from "./utils/detectLanguage";
 
 function App() {
   const isPartnerPage = /^\/partner-services\/?$/.test(window.location.pathname);
@@ -20,10 +21,10 @@ function App() {
   const [language, setLanguage] = useState(() => {
     try {
       const saved = localStorage.getItem("portfolio-language");
-      return Object.hasOwn(translations, saved) ? saved : "de";
+      return Object.hasOwn(translations, saved) ? saved : detectLanguage(translations);
     } catch (error) {
       console.warn("Spracheinstellung konnte nicht geladen werden:", error);
-      return "de";
+      return detectLanguage(translations);
     }
   });
   const text = translations[language];

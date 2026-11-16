@@ -17,7 +17,7 @@ export const legalTranslations = {
       {
         title: "Spracheinstellung",
         paragraphs: [
-          "Die gewählte Sprache wird im lokalen Speicher Ihres Browsers unter „portfolio-language“ abgelegt, damit sie bei einem späteren Besuch erhalten bleibt. Sie können den Eintrag über die Einstellungen Ihres Browsers löschen.",
+          "Die gewählte Sprache wird im lokalen Speicher Ihres Browsers unter „portfolio-language“ abgelegt, damit sie bei einem späteren Besuch erhalten bleibt. Bei der ersten Nutzung wird die Standardsprache lokal im Browser aus Ihren Spracheinstellungen und Ihrer Zeitzone abgeleitet; hierfür wird weder Ihre IP-Adresse ausgewertet noch ein externer Dienst genutzt. Sie können den Eintrag über die Einstellungen Ihres Browsers löschen.",
           "Die rechtliche Grundlage und die Voraussetzungen für diese Speicherung sind vor Veröffentlichung zu prüfen.",
         ],
       },
@@ -69,7 +69,7 @@ export const legalTranslations = {
       {
         title: "Language preference",
         paragraphs: [
-          "Your chosen language is stored in your browser's local storage under “portfolio-language” so it remains available on a later visit. You can delete this entry through your browser settings.",
+          "Your chosen language is stored in your browser's local storage under “portfolio-language” so it remains available on a later visit. On first use, the default language is derived locally in your browser from your language settings and time zone; your IP address is not evaluated and no external service is used. You can delete this entry through your browser settings.",
           "The legal basis and conditions for this storage must be reviewed before publication.",
         ],
       },
@@ -121,7 +121,7 @@ export const legalTranslations = {
       {
         title: "Préférence de langue",
         paragraphs: [
-          "La langue choisie est enregistrée dans le stockage local de votre navigateur sous « portfolio-language » afin d'être conservée lors d'une prochaine visite. Vous pouvez supprimer cette entrée dans les paramètres de votre navigateur.",
+          "La langue choisie est enregistrée dans le stockage local de votre navigateur sous « portfolio-language » afin d'être conservée lors d'une prochaine visite. Lors de la première utilisation, la langue par défaut est déterminée localement dans votre navigateur à partir de vos paramètres de langue et de votre fuseau horaire ; votre adresse IP n'est pas analysée et aucun service externe n'est utilisé. Vous pouvez supprimer cette entrée dans les paramètres de votre navigateur.",
           "La base juridique et les conditions de cet enregistrement doivent être vérifiées avant publication.",
         ],
       },
