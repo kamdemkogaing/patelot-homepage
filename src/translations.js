@@ -223,10 +223,10 @@ export const partnerTranslations = {
       "website-care": { title: "Website-Betreuung", description: "Laufende Unterstützung für Ihren Webauftritt, abgestimmt auf Ihren Bedarf." },
       "shopware-consulting": { title: "Shopware- und E-Commerce-Beratung", description: "Beratung zu Ihrer Shopware-Lösung und Ihren E-Commerce-Anforderungen." },
     } },
-    recommendations: { eyebrow: "Digitale Lösungen", heading: "Empfohlene IT-Lösungen", intro: "Orientierung für die Auswahl passender Lösungen für Ihr Unternehmen.", advertisement: "Werbung – Affiliate-Link; bei einem Abschluss kann ich eine Provision erhalten", link: "Angebot ansehen", items: {
-      hosting: { title: "Hosting", description: "Eine passende technische Grundlage für Ihren Webauftritt." },
-      domains: { title: "Domains", description: "Die passende Internetadresse für Ihr Unternehmen." },
-      cloud: { title: "Cloud-Software", description: "Digitale Werkzeuge für Zusammenarbeit und Geschäftsprozesse." },
+    recommendations: { eyebrow: "Digitale Lösungen", heading: "Empfohlene IT-Lösungen", intro: "Orientierung für die Auswahl passender Lösungen für Ihr Unternehmen.", advertisement: "Werbung – Affiliate-Link; bei einem Abschluss kann ich eine Provision erhalten", affiliateDisclosure: "Werbung / Affiliate-Link", hostingCountryLabel: "Zielland", hostingCountryPlaceholder: "Land auswählen", hostingCountries: { de: "Deutschland", fr: "Frankreich", us: "USA" }, hostingSelectPrompt: "Bitte zuerst ein Zielland auswählen.", hostingCta: "IONOS-Angebote entdecken", consultationCta: "Beratung anfragen", link: "Angebot ansehen", items: {
+      hosting: { title: "IONOS Hosting", description: "Entdecken Sie Hosting-Angebote von IONOS für Ihren Webauftritt." },
+      domains: { title: "Domains & E-Mail", description: "Beratung zu Domainregistrierung und geschäftlichen E-Mail-Lösungen.", highlights: ["Domainregistrierung", "Geschäftliche E-Mail"] },
+      cloud: { title: "Cloud-Software & Business-Tools", description: "Beratung zu Microsoft 365, Google Workspace und passenden Cloud-Lösungen.", highlights: ["Microsoft 365", "Google Workspace", "Cloud-Lösungen"], note: "Die Nennung dient der Beschreibung von Beratungsfeldern und behauptet keine offizielle Partnerschaft." },
     } },
     inquiry: { eyebrow: "Kontakt", heading: "Sprechen wir über Ihr Vorhaben", intro: "Beschreiben Sie Ihren Bedarf – gemeinsam finden wir den passenden nächsten Schritt.", notice: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit einem Entwurf. Bitte prüfen und senden Sie die E-Mail dort selbst. Es erfolgt keine automatische Übermittlung.", emailLink: "E-Mail schreiben", name: "Name", company: "Unternehmen (optional)", email: "E-Mail", service: "Gewünschte Leistung", choose: "Bitte auswählen", message: "Nachricht", privacy: "Ihre Angaben werden für den E-Mail-Entwurf an Ihr E-Mail-Programm übergeben, nicht über diese Website versendet.", subject: "Anfrage zu", submit: "E-Mail-Entwurf öffnen" },
   },
@@ -258,10 +258,10 @@ export const partnerTranslations = {
       "website-care": { title: "Website care", description: "Ongoing support for your website, tailored to your needs." },
       "shopware-consulting": { title: "Shopware and e-commerce consulting", description: "Advice on your Shopware solution and e-commerce requirements." },
     } },
-    recommendations: { eyebrow: "Digital solutions", heading: "Recommended IT solutions", intro: "Guidance for choosing suitable solutions for your business.", advertisement: "Advertisement – affiliate link; I may receive a commission if you purchase", link: "View offer", items: {
-      hosting: { title: "Hosting", description: "A suitable technical foundation for your website." },
-      domains: { title: "Domains", description: "The right web address for your business." },
-      cloud: { title: "Cloud software", description: "Digital tools for collaboration and business processes." },
+    recommendations: { eyebrow: "Digital solutions", heading: "Recommended IT solutions", intro: "Guidance for choosing suitable solutions for your business.", advertisement: "Advertisement – affiliate link; I may receive a commission if you purchase", affiliateDisclosure: "Advertisement / Affiliate link", hostingCountryLabel: "Destination country", hostingCountryPlaceholder: "Select a country", hostingCountries: { de: "Germany", fr: "France", us: "United States" }, hostingSelectPrompt: "Select a destination country to view offers.", hostingCta: "Explore IONOS offers", consultationCta: "Request a consultation", link: "View offer", items: {
+      hosting: { title: "IONOS Hosting", description: "Explore IONOS hosting options for your website." },
+      domains: { title: "Domains & Email", description: "Consultation for domain registration and professional business email solutions.", highlights: ["Domain registration", "Business email"] },
+      cloud: { title: "Cloud Software & Business Tools", description: "Consultation for Microsoft 365, Google Workspace and suitable cloud solutions.", highlights: ["Microsoft 365", "Google Workspace", "Cloud solutions"], note: "These names describe areas of consultation and do not imply official partnerships." },
     } },
     inquiry: { eyebrow: "Contact", heading: "Let's discuss your project", intro: "Tell me what you need and together we can find the next step.", notice: "Submitting opens a draft in your email app. Please review and send the email yourself. Nothing is sent automatically.", emailLink: "Write an email", name: "Name", company: "Company (optional)", email: "Email", service: "Desired service", choose: "Please select", message: "Message", privacy: "Your details are passed to your email app for the draft, not sent through this website.", subject: "Enquiry about", submit: "Open email draft" },
   },
@@ -293,10 +293,10 @@ export const partnerTranslations = {
       "website-care": { title: "Suivi de site web", description: "Un accompagnement continu pour votre site, adapté à vos besoins." },
       "shopware-consulting": { title: "Conseil Shopware et e-commerce", description: "Des conseils pour votre solution Shopware et vos besoins en e-commerce." },
     } },
-    recommendations: { eyebrow: "Solutions numériques", heading: "Solutions informatiques recommandées", intro: "Un accompagnement pour choisir des solutions adaptées à votre entreprise.", advertisement: "Publicité – lien affilié ; je peux recevoir une commission en cas d'achat", link: "Voir l'offre", items: {
-      hosting: { title: "Hébergement", description: "Une base technique adaptée à votre site web." },
-      domains: { title: "Noms de domaine", description: "Une adresse web adaptée à votre entreprise." },
-      cloud: { title: "Logiciels cloud", description: "Des outils numériques pour la collaboration et les processus métiers." },
+    recommendations: { eyebrow: "Solutions numériques", heading: "Solutions informatiques recommandées", intro: "Un accompagnement pour choisir des solutions adaptées à votre entreprise.", advertisement: "Publicité – lien affilié ; je peux recevoir une commission en cas d'achat", affiliateDisclosure: "Publicité / Lien affilié", hostingCountryLabel: "Pays de destination", hostingCountryPlaceholder: "Sélectionner un pays", hostingCountries: { de: "Allemagne", fr: "France", us: "États-Unis" }, hostingSelectPrompt: "Veuillez d'abord sélectionner un pays.", hostingCta: "Découvrir les offres IONOS", consultationCta: "Demander un conseil", link: "Voir l'offre", items: {
+      hosting: { title: "Hébergement IONOS", description: "Découvrez les offres d’hébergement IONOS pour votre site web." },
+      domains: { title: "Domaines & e-mail", description: "Conseil pour l'enregistrement de domaines et les solutions d'e-mail professionnel.", highlights: ["Enregistrement de domaines", "E-mail professionnel"] },
+      cloud: { title: "Logiciels cloud & outils professionnels", description: "Conseil sur Microsoft 365, Google Workspace et les solutions cloud adaptées.", highlights: ["Microsoft 365", "Google Workspace", "Solutions cloud"], note: "Ces noms décrivent des domaines de conseil et ne signifient pas qu'un partenariat officiel existe." },
     } },
     inquiry: { eyebrow: "Contact", heading: "Parlons de votre projet", intro: "Décrivez vos besoins pour trouver ensemble la prochaine étape.", notice: "L'envoi ouvre un brouillon dans votre application e-mail. Veuillez le vérifier et l'envoyer vous-même. Aucun message n'est envoyé automatiquement.", emailLink: "Écrire un e-mail", name: "Nom", company: "Entreprise (facultatif)", email: "E-mail", service: "Prestation souhaitée", choose: "Veuillez choisir", message: "Message", privacy: "Vos données sont transmises à votre application e-mail pour le brouillon, et non envoyées par ce site.", subject: "Demande concernant", submit: "Ouvrir le brouillon e-mail" },
   },

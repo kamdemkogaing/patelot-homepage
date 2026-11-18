@@ -1,4 +1,5 @@
 import {
+  AtSign,
   ArrowDown,
   ArrowRight,
   Briefcase,
@@ -17,11 +18,16 @@ import { affiliateLinks, servicePackages } from "../config/partnerOffers";
 import "../styles/PartnerServices.css";
 
 const serviceIcons = [Globe, ShoppingCart, Cloud, ShieldCheck];
+const recommendationIcons = { hosting: Cloud, domains: AtSign, cloud: Layers };
 const advantageIcons = [MessageCircle, Layers, HeartHandshake];
 const stepIcons = [MessageCircle, Briefcase, Settings];
 
 const PartnerServices = ({ text }) => {
   const [selectedService, setSelectedService] = useState("");
+  const [selectedHostingCountry, setSelectedHostingCountry] = useState("");
+  const hostingUrl = Object.hasOwn(affiliateLinks.hosting, selectedHostingCountry)
+    ? affiliateLinks.hosting[selectedHostingCountry]
+    : null;
 
   const submitInquiry = (event) => {
     event.preventDefault();
@@ -122,18 +128,75 @@ const PartnerServices = ({ text }) => {
           <h2 id="partner-recommendations-heading">{text.recommendations.heading}</h2>
           <p>{text.recommendations.intro}</p>
         </div>
-        <div className="partner-three-grid">
-          {Object.entries(affiliateLinks).map(([id, url]) => (
-            <article key={id} className="partner-feature">
-              <h3>{text.recommendations.items[id].title}</h3>
-              <p>{text.recommendations.items[id].description}</p>
-              {url && (
-                <a className="partner-card-link partner-affiliate-link" href={url} target="_blank" rel="sponsored noopener noreferrer">
-                  {text.recommendations.advertisement}: {text.recommendations.link} <ArrowRight size={16} aria-hidden="true" />
-                </a>
-              )}
-            </article>
-          ))}
+        <div className="partner-three-grid partner-recommendations-grid">
+          {Object.entries(affiliateLinks).map(([id, offer]) => {
+            const url = id === "hosting" ? hostingUrl : offer;
+            const Icon = recommendationIcons[id];
+            return (
+              <article key={id} className={`partner-feature partner-recommendation-card${id === "hosting" ? " partner-ionos-card" : ""}`}>
+                <span className="partner-feature-icon"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{text.recommendations.items[id].title}</h3>
+                <p>{text.recommendations.items[id].description}</p>
+                {id === "hosting" && (
+                  <>
+                    <label className="partner-ionos-country-field">
+                      <span>{text.recommendations.hostingCountryLabel}</span>
+                      <select
+                        value={selectedHostingCountry}
+                        onChange={(event) => setSelectedHostingCountry(event.target.value)}
+                      >
+                        <option value="">{text.recommendations.hostingCountryPlaceholder}</option>
+                        {Object.keys(affiliateLinks.hosting).map((country) => (
+                          <option key={country} value={country}>
+                            {text.recommendations.hostingCountries[country]}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <p className="partner-affiliate-disclosure">{text.recommendations.affiliateDisclosure}</p>
+                  </>
+                )}
+                {id !== "hosting" && (
+                  <>
+                    <ul className="partner-recommendation-highlights">
+                      {text.recommendations.items[id].highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                    {text.recommendations.items[id].note && (
+                      <p className="partner-provider-note">{text.recommendations.items[id].note}</p>
+                    )}
+                  </>
+                )}
+                <div className="partner-recommendation-actions">
+                  {id === "hosting" ? (
+                    url ? (
+                      <a
+                        className="partner-card-link partner-recommendation-button partner-ionos-cta"
+                        href={url}
+                        target="_blank"
+                        rel="sponsored noopener noreferrer"
+                      >
+                        {text.recommendations.hostingCta}
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <p className="partner-ionos-selection-prompt">{text.recommendations.hostingSelectPrompt}</p>
+                    )
+                  ) : (
+                    <a
+                      className="partner-card-link partner-recommendation-button"
+                      href="#partner-inquiry"
+                      onClick={() => setSelectedService(id === "domains" ? "hosting" : "cloud")}
+                    >
+                      {text.recommendations.consultationCta}
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
